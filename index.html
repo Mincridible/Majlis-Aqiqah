@@ -724,44 +724,68 @@
         const openBtn      = document.getElementById('openInvitation');
         const invitation   = document.getElementById('invitation');
         const bgMusic      = document.getElementById('bgMusic');
-        const musicToggle  = document.getElementById('musicToggle');
+        const musicToggle   = document.getElementById('musicToggle');
         let isMusicPlaying = false;
-
-          // Get the audio element
-          var audio = document.getElementById("bgMusic");
-          // Set volume to 3%
-          audio.volume = 0.03;
+        
+        // 1. Initial State: Start at zero volume
+        bgMusic.volume = 0;
         
         openBtn.addEventListener('click', () => {
             splashScreen.classList.add('hidden');
             invitation.classList.add('visible');
             musicToggle.classList.add('visible');
-
+        
+            // 2. Play the music
             bgMusic.play().then(() => {
                 isMusicPlaying = true;
                 musicToggle.classList.add('playing');
-            }).catch(() => {
+                
+                // 3. Trigger the Gentle Fade-In
+                fadeAudioIn(bgMusic, 0.03); // Target volume is 3%
+                
+            }).catch((error) => {
+                console.log("Autoplay prevented or error:", error);
                 isMusicPlaying = false;
             });
         });
-
+        
+        // Function to smoothly increase volume
+        function fadeAudioIn(audioElement, targetVolume) {
+            let volume = 0;
+            const interval = 50; // Speed of the fade steps (ms)
+            const step = 0.001;  // How much volume increases per step
+        
+            const fadeIn = setInterval(() => {
+                if (volume < targetVolume) {
+                    volume += step;
+                    // Cap it at targetVolume to be safe
+                    audioElement.volume = Math.min(volume, targetVolume);
+                } else {
+                    clearInterval(fadeIn);
+                }
+            }, interval);
+        }
+        
+        // Music Toggle Logic
         musicToggle.addEventListener('click', () => {
             if (isMusicPlaying) {
                 bgMusic.pause();
                 musicToggle.classList.remove('playing');
             } else {
+                // Ensure volume is set correctly if they toggle it back on
+                bgMusic.volume = 0.03; 
                 bgMusic.play();
                 musicToggle.classList.add('playing');
             }
             isMusicPlaying = !isMusicPlaying;
         });
-
+        
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) entry.target.classList.add('visible');
             });
         }, { threshold: 0.15 });
-
+        
         document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
     </script>
 </body>
