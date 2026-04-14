@@ -24,13 +24,14 @@
             --rose-light: #dbb5bb;
             --rose-pale: #eedcdf;
             --rose-deep: #9e6570;
-            --blue-muted: #7a9bb8;
-            --blue-deep: #4a7194;
+            --blue-muted: #4a7fb5;
+            --pink-name: #c0607a;
             --cream: #f7f5f0;
             --white: #ffffff;
-            --dark: #3d3830;
-            --text: #555048;
-            --text-light: #7a756d;
+            --black: #1a1a1a;
+            --dark: #2a2a2a;
+            --text: #333333;
+            --text-light: #666666;
         }
 
         html {
@@ -73,7 +74,6 @@
             font-size: 1.8rem;
             color: var(--sage-pale);
             margin-bottom: 1rem;
-            opacity: 0.9;
         }
 
         .splash-title {
@@ -138,16 +138,16 @@
             width: 48px;
             height: 48px;
             border-radius: 50%;
-            border: 1.5px solid var(--sage-light);
-            background: var(--sage-dark);
-            color: var(--sage-light);
+            border: 1.5px solid var(--sage);
+            background: var(--white);
+            color: var(--sage-deep);
             cursor: pointer;
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: 1.2rem;
             transition: all 0.3s ease;
-            box-shadow: 0 3px 12px rgba(0,0,0,0.2);
+            box-shadow: 0 3px 12px rgba(0,0,0,0.12);
             opacity: 0;
             visibility: hidden;
         }
@@ -158,8 +158,7 @@
         }
 
         .music-toggle:hover {
-            background: var(--sage-light);
-            color: var(--sage-dark);
+            background: var(--sage-pale);
             transform: scale(1.08);
         }
 
@@ -203,7 +202,7 @@
             opacity: 1;
         }
 
-        /* ===================== HERO SECTION ===================== */
+        /* ===================== HERO / MAIN PAGE ===================== */
         .hero {
             min-height: 100vh;
             display: flex;
@@ -212,7 +211,7 @@
             justify-content: center;
             text-align: center;
             padding: 3rem 2rem;
-            background: linear-gradient(135deg, var(--sage-dark) 0%, #3a5a3a 50%, var(--sage-dark) 100%);
+            background: linear-gradient(160deg, #f0f7f0 0%, #e6f0e6 30%, #f2f7f0 60%, #eef4ee 100%);
             position: relative;
             overflow: hidden;
         }
@@ -223,7 +222,7 @@
             position: absolute;
             width: 300px;
             height: 300px;
-            border: 1px solid rgba(181, 204, 181, 0.08);
+            border: 1px solid rgba(138, 171, 138, 0.12);
             border-radius: 50%;
         }
 
@@ -233,7 +232,7 @@
         .bismillah {
             font-family: 'Amiri', serif;
             font-size: 2rem;
-            color: var(--sage-pale);
+            color: var(--black);
             margin-bottom: 1.5rem;
             font-weight: 700;
             line-height: 1.6;
@@ -245,9 +244,9 @@
 
         .host-name {
             font-family: 'Playfair Display', serif;
-            font-size: 1.15rem;
+            font-size: 1.2rem;
             font-weight: 700;
-            color: var(--sage-pale);
+            color: var(--black);
             letter-spacing: 2px;
             text-transform: uppercase;
             line-height: 1.6;
@@ -256,21 +255,22 @@
         .host-ampersand {
             font-family: 'Great Vibes', cursive;
             font-size: 1.8rem;
-            color: var(--rose-light);
+            color: var(--rose);
             margin: 0.1rem 0;
         }
 
         .invitation-text {
-            font-size: 1.1rem;
-            color: rgba(214, 229, 214, 0.8);
+            font-size: 1.15rem;
+            color: var(--text);
             margin-bottom: 0.5rem;
             line-height: 1.8;
+            font-weight: 500;
         }
 
         .majlis-title {
             font-family: 'Great Vibes', cursive;
-            font-size: 3rem;
-            color: var(--sage-light);
+            font-size: 3.2rem;
+            color: var(--sage-deep);
             margin-bottom: 0.5rem;
         }
 
@@ -285,27 +285,26 @@
         .divider-line {
             width: 60px;
             height: 1px;
-            background: var(--sage-light);
-            opacity: 0.35;
+            background: var(--sage);
+            opacity: 0.5;
         }
 
         .divider-diamond {
             width: 7px;
             height: 7px;
-            border: 1px solid var(--sage-light);
+            border: 1px solid var(--sage);
             transform: rotate(45deg);
-            opacity: 0.4;
+            opacity: 0.6;
         }
 
         .cucunda-label {
             font-family: 'Playfair Display', serif;
-            font-size: 0.9rem;
+            font-size: 1rem;
             letter-spacing: 4px;
             text-transform: uppercase;
-            color: var(--sage-pale);
+            color: var(--dark);
             margin: 0.6rem 0;
-            font-weight: 600;
-            opacity: 0.8;
+            font-weight: 700;
         }
 
         .children-list {
@@ -323,24 +322,48 @@
         }
 
         .child-name.boy { color: var(--blue-muted); }
-        .child-name.girl { color: var(--rose); }
+        .child-name.girl { color: var(--pink-name); }
 
         .child-separator {
             font-family: 'Great Vibes', cursive;
             font-size: 1.3rem;
-            color: var(--rose-light);
+            color: var(--rose);
             margin: 0.15rem 0;
-            opacity: 0.7;
+        }
+
+        /* Date highlight */
+        .date-highlight {
+            margin: 1.5rem 0 0.5rem;
+            padding: 1.2rem 2rem;
+            border: 2px solid var(--sage);
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.6);
+        }
+
+        .date-highlight-text {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--black);
+            letter-spacing: 3px;
+        }
+
+        .date-highlight-sub {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.1rem;
+            color: var(--text);
+            margin-top: 0.3rem;
+            font-weight: 500;
         }
 
         .hero-dua {
             font-size: 1.05rem;
-            color: var(--sage-pale);
+            color: var(--text);
             font-style: italic;
             max-width: 500px;
             line-height: 1.8;
-            opacity: 0.6;
-            margin-top: 0.5rem;
+            opacity: 0.7;
+            margin-top: 1rem;
         }
 
         /* ===================== NAVIGATION SECTION ===================== */
@@ -360,11 +383,12 @@
         }
 
         .venue-address {
-            font-size: 1.1rem;
-            color: rgba(214, 229, 214, 0.65);
+            font-size: 1.15rem;
+            color: rgba(214, 229, 214, 0.75);
             max-width: 400px;
             margin: 0 auto 1rem;
             line-height: 1.9;
+            font-weight: 500;
         }
 
         .nav-hint {
@@ -400,12 +424,8 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            font-size: 1.6rem;
             transition: all 0.3s ease;
-        }
-
-        .map-btn-icon svg {
-            width: 26px;
-            height: 26px;
         }
 
         .map-btn-label {
@@ -428,7 +448,6 @@
 
         .btn-waze .map-btn-icon {
             background: rgba(140, 200, 220, 0.2);
-            color: #b0dae8;
         }
 
         .btn-waze:hover {
@@ -439,7 +458,6 @@
 
         .btn-waze:hover .map-btn-icon {
             background: #8cc8dc;
-            color: var(--sage-dark);
         }
 
         .btn-gmaps {
@@ -450,7 +468,6 @@
 
         .btn-gmaps .map-btn-icon {
             background: rgba(201, 144, 154, 0.2);
-            color: var(--rose-light);
         }
 
         .btn-gmaps:hover {
@@ -490,6 +507,7 @@
             text-align: center;
             color: var(--sage-deep);
             margin-bottom: 0.5rem;
+            font-weight: 700;
         }
 
         .section-ornament {
@@ -500,74 +518,9 @@
             opacity: 0.4;
         }
 
-        /* ===================== BUTIRAN MAJLIS (DETAILS) ===================== */
-        .details-section {
-            background: var(--white);
-        }
-
-        .details-section .section-title {
-            font-size: 2.2rem;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            color: var(--sage-dark);
-        }
-
-        .details-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-            gap: 1.5rem;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .detail-card {
-            text-align: center;
-            padding: 2rem 1.5rem;
-            border: 1px solid var(--sage-pale);
-            border-radius: 8px;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .detail-card:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 6px 24px rgba(74, 107, 74, 0.06);
-        }
-
-        .detail-icon {
-            margin-bottom: 0.8rem;
-        }
-
-        .detail-icon svg {
-            width: 30px;
-            height: 30px;
-            color: var(--sage);
-            stroke-width: 1.5;
-        }
-
-        .detail-label {
-            font-family: 'Playfair Display', serif;
-            font-size: 0.85rem;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            color: var(--text-light);
-            margin-bottom: 0.5rem;
-        }
-
-        .detail-value {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.3rem;
-            color: var(--dark);
-            line-height: 1.6;
-        }
-
-        .detail-value strong {
-            font-weight: 600;
-            color: var(--sage-dark);
-        }
-
         /* ===================== SCHEDULE (TIMELINE) ===================== */
         .schedule-section {
-            background: var(--cream);
+            background: var(--white);
         }
 
         .timeline {
@@ -602,21 +555,23 @@
             height: 12px;
             border-radius: 50%;
             background: var(--sage);
-            border: 3px solid var(--cream);
+            border: 3px solid var(--white);
             box-shadow: 0 0 0 2px var(--sage);
         }
 
         .timeline-time {
             font-family: 'Playfair Display', serif;
-            font-size: 0.85rem;
+            font-size: 0.9rem;
             letter-spacing: 2px;
             color: var(--sage-deep);
+            font-weight: 600;
         }
 
         .timeline-event {
-            font-size: 1.2rem;
+            font-size: 1.25rem;
             color: var(--dark);
             margin-top: 0.25rem;
+            font-weight: 500;
         }
 
         /* ===================== DOA SECTION ===================== */
@@ -684,15 +639,12 @@
         @media (max-width: 600px) {
             .bismillah { font-size: 1.5rem; }
             .host-name { font-size: 1rem; letter-spacing: 1px; }
-            .majlis-title { font-size: 2.4rem; }
+            .majlis-title { font-size: 2.5rem; }
             .child-name { font-size: 1rem; }
-            .details-section .section-title { font-size: 1.7rem; letter-spacing: 2px; }
+            .date-highlight-text { font-size: 1.5rem; letter-spacing: 2px; }
             .section-title { font-size: 1.4rem; }
             .map-btn { min-width: 120px; padding: 14px 18px; }
-            .map-btn-icon { width: 44px; height: 44px; }
-            .map-btn-icon svg { width: 22px; height: 22px; }
-            .detail-card { padding: 1.5rem 1rem; }
-            .detail-value { font-size: 1.15rem; }
+            .map-btn-icon { width: 44px; height: 44px; font-size: 1.3rem; }
             .doa-text { font-size: 1.15rem; }
             .splash-title { font-size: 1.4rem; }
             .splash-bismillah { font-size: 1.4rem; }
@@ -700,6 +652,8 @@
 
         @media (max-width: 380px) {
             .child-name { font-size: 0.9rem; letter-spacing: 1px; }
+            .date-highlight-text { font-size: 1.3rem; }
+            .date-highlight { padding: 1rem 1.2rem; }
         }
     </style>
 </head>
@@ -735,7 +689,7 @@
     <!-- Main Invitation Content -->
     <div class="invitation" id="invitation">
 
-        <!-- Hero Section -->
+        <!-- Hero / Main Page -->
         <section class="hero">
 
             <div class="bismillah">&#65010;</div>
@@ -782,12 +736,18 @@
                 <div class="divider-line"></div>
             </div>
 
+            <!-- Prominent Date -->
+            <div class="date-highlight">
+                <div class="date-highlight-text">23 Mei 2026 &nbsp;|&nbsp; Sabtu</div>
+                <div class="date-highlight-sub">11:00 pagi &ndash; 4:00 petang</div>
+            </div>
+
             <p class="hero-dua">
                 "Ya Allah, berkatilah cucunda kami dan jadikanlah mereka anak-anak yang soleh dan solehah."
             </p>
         </section>
 
-        <!-- Lokasi & Navigation (First Section) -->
+        <!-- Lokasi & Navigation -->
         <section class="venue-section">
             <h2 class="section-title fade-in">Lokasi Majlis</h2>
             <div class="section-ornament fade-in">&#10044;</div>
@@ -804,79 +764,39 @@
                 -->
                 <a href="https://waze.com/ul?ll=5.3717,100.5609&navigate=yes"
                    target="_blank" rel="noopener noreferrer" class="map-btn btn-waze">
-                    <div class="map-btn-icon">
-                        <svg viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M12 2C6.5 2 2 6.5 2 12c0 2.3.8 4.4 2.1 6.1.3.4.7.3.9-.1.2-.3.1-.7-.2-1C3.7 15.7 3 13.9 3 12c0-5 4-9 9-9s9 4 9 9c0 1.9-.7 3.7-1.8 5-.3.3-.4.7-.2 1 .2.4.6.5.9.1C21.2 16.4 22 14.3 22 12c0-5.5-4.5-10-10-10zm-2.5 8a1.5 1.5 0 100-3 1.5 1.5 0 000 3zm5 0a1.5 1.5 0 100-3 1.5 1.5 0 000 3zM12 17c-2.2 0-4-1.3-4-3h1c0 1.1 1.3 2 3 2s3-.9 3-2h1c0 1.7-1.8 3-4 3z"/>
-                        </svg>
-                    </div>
+                    <div class="map-btn-icon">&#128205;</div>
                     <span class="map-btn-label">Waze</span>
                     <span class="map-btn-sub">Buka di Waze</span>
                 </a>
                 <a href="https://www.google.com/maps/search/?api=1&query=5.3717,100.5609"
                    target="_blank" rel="noopener noreferrer" class="map-btn btn-gmaps">
-                    <div class="map-btn-icon">
-                        <svg viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5S10.62 6.5 12 6.5s2.5 1.12 2.5 2.5S13.38 11.5 12 11.5z"/>
-                        </svg>
-                    </div>
+                    <div class="map-btn-icon">&#128205;</div>
                     <span class="map-btn-label">Google Maps</span>
                     <span class="map-btn-sub">Buka di Google Maps</span>
                 </a>
             </div>
         </section>
 
-        <!-- Butiran Majlis (Event Details) -->
-        <section class="details-section">
-            <h2 class="section-title fade-in">Butiran Majlis</h2>
-            <div class="section-ornament fade-in">&#10044;</div>
-            <div class="details-grid">
-                <div class="detail-card fade-in">
-                    <div class="detail-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
-                            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
-                            <line x1="16" y1="2" x2="16" y2="6"></line>
-                            <line x1="8" y1="2" x2="8" y2="6"></line>
-                            <line x1="3" y1="10" x2="21" y2="10"></line>
-                        </svg>
-                    </div>
-                    <div class="detail-label">Tarikh</div>
-                    <div class="detail-value"><strong>Sabtu, 23 Mei 2026</strong></div>
-                </div>
-                <div class="detail-card fade-in">
-                    <div class="detail-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
-                            <circle cx="12" cy="12" r="10"></circle>
-                            <polyline points="12 6 12 12 16 14"></polyline>
-                        </svg>
-                    </div>
-                    <div class="detail-label">Masa</div>
-                    <div class="detail-value"><strong>11:00 pagi &ndash; 4:00 petang</strong></div>
-                </div>
-                <div class="detail-card fade-in">
-                    <div class="detail-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"></path>
-                            <circle cx="12" cy="10" r="3"></circle>
-                        </svg>
-                    </div>
-                    <div class="detail-label">Tempat</div>
-                    <div class="detail-value"><strong>Lot 4410 Jalan Menteri,<br>09000 Kulim, Kedah</strong></div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Atur Cara (Schedule) -->
+        <!-- Atur Cara Majlis (Schedule) -->
         <section class="schedule-section">
             <h2 class="section-title fade-in">Atur Cara Majlis</h2>
             <div class="section-ornament fade-in">&#10044;</div>
             <div class="timeline fade-in">
                 <div class="timeline-item">
-                    <div class="timeline-time">11:00 &ndash; 11:15 pagi</div>
+                    <div class="timeline-time">10:45 pagi</div>
+                    <div class="timeline-event">Ketibaan Tetamu</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-time">11:00 pagi</div>
                     <div class="timeline-event">Tahlil</div>
                 </div>
                 <div class="timeline-item">
-                    <div class="timeline-time">11:15 &ndash; 4:00 petang</div>
-                    <div class="timeline-event">Jamuan</div>
+                    <div class="timeline-time">11:15 pagi</div>
+                    <div class="timeline-event">Jamuan Makan</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-time">4:00 petang</div>
+                    <div class="timeline-event">Majlis Bersurai</div>
                 </div>
             </div>
         </section>
