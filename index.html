@@ -6,7 +6,7 @@
     <title>Majlis Aqiqah</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Great+Vibes&family=Amiri:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Great+Vibes&family=Amiri:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
     <style>
         *, *::before, *::after {
             margin: 0;
@@ -15,33 +15,39 @@
         }
 
         :root {
-            --sage: #8aab8a;
-            --sage-light: #b5ccb5;
-            --sage-pale: #d6e5d6;
-            --sage-deep: #4a6b4a;
-            --sage-dark: #344d34;
-            --rose: #c9909a;
-            --rose-light: #dbb5bb;
-            --rose-pale: #eedcdf;
-            --rose-deep: #9e6570;
-            --blue-muted: #4a7fb5;
-            --pink-name: #c0607a;
-            --cream: #f7f5f0;
-            --white: #ffffff;
-            --black: #1a1a1a;
-            --dark: #2a2a2a;
-            --text: #333333;
-            --text-light: #666666;
+            /* === ANCHOR: Sage === */
+            --sage-pale:   #eef4ee;
+            --sage-light:  #b5ccb5;
+            --sage:        #8aab8a;
+            --sage-mid:    #6a8f6a;
+            --sage-deep:   #4a6b4a;
+            --sage-dark:   #344d34;
+
+            /* === ACCENT 1: Rose (cursive & name elements only) === */
+            --rose-pale:   #eedcdf;
+            --rose:        #c9909a;
+            --rose-deep:   #9e6570;
+
+            /* === ACCENT 2: Warm Cream (alternating section bg) === */
+            --cream:       #f7f5f0;
+            --linen:       #e8e2d8;
+
+            /* === Neutral text === */
+            --ink:         #1e2a1e;
+            --ink-mid:     #3a4a3a;
+            --ink-light:   #6a7a6a;
+
+            /* === Children name colours === */
+            --boy-blue:    #3d6ea0;
+            --girl-rose:   #b05070;
         }
 
-        html {
-            scroll-behavior: smooth;
-        }
+        html { scroll-behavior: smooth; }
 
         body {
             font-family: 'Cormorant Garamond', serif;
             background-color: var(--cream);
-            color: var(--dark);
+            color: var(--ink-mid);
             overflow-x: hidden;
         }
 
@@ -54,7 +60,7 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            background: linear-gradient(135deg, var(--sage-dark) 0%, #3a5a3a 50%, var(--sage-dark) 100%);
+            background: linear-gradient(160deg, var(--sage-dark) 0%, #2d4330 50%, var(--sage-dark) 100%);
             transition: opacity 0.8s ease, visibility 0.8s ease;
         }
 
@@ -64,10 +70,7 @@
             pointer-events: none;
         }
 
-        .splash-content {
-            text-align: center;
-            padding: 2rem;
-        }
+        .splash-content { text-align: center; padding: 2rem; }
 
         .splash-bismillah {
             font-family: 'Amiri', serif;
@@ -77,12 +80,13 @@
         }
 
         .splash-title {
-            font-family: 'Playfair Display', serif;
+            font-family: 'Cormorant Garamond', serif;
             font-size: 1.8rem;
             color: var(--sage-light);
             margin-bottom: 0.5rem;
-            letter-spacing: 4px;
+            letter-spacing: 5px;
             text-transform: uppercase;
+            font-weight: 500;
         }
 
         .splash-subtitle {
@@ -91,13 +95,14 @@
             color: var(--sage-pale);
             margin-bottom: 2.5rem;
             font-style: italic;
-            opacity: 0.8;
+            opacity: 0.75;
         }
 
         .open-btn {
             padding: 14px 48px;
-            font-family: 'Playfair Display', serif;
-            font-size: 1rem;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.05rem;
+            font-weight: 500;
             letter-spacing: 3px;
             text-transform: uppercase;
             color: var(--sage-light);
@@ -112,79 +117,45 @@
         .open-btn::before {
             content: '';
             position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
+            top: 0; left: -100%;
+            width: 100%; height: 100%;
             background: var(--sage-light);
             transition: left 0.4s ease;
             z-index: -1;
         }
 
-        .open-btn:hover {
-            color: var(--sage-dark);
-        }
-
-        .open-btn:hover::before {
-            left: 0;
-        }
+        .open-btn:hover { color: var(--sage-dark); }
+        .open-btn:hover::before { left: 0; }
 
         /* ===================== MUSIC CONTROL ===================== */
         .music-toggle {
             position: fixed;
-            bottom: 24px;
-            right: 24px;
+            bottom: 24px; right: 24px;
             z-index: 999;
-            width: 48px;
-            height: 48px;
+            width: 48px; height: 48px;
             border-radius: 50%;
-            border: 1.5px solid var(--sage);
-            background: var(--white);
+            border: 1.5px solid var(--sage-light);
+            background: var(--cream);
             color: var(--sage-deep);
             cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            display: flex; align-items: center; justify-content: center;
             font-size: 1.2rem;
             transition: all 0.3s ease;
-            box-shadow: 0 3px 12px rgba(0,0,0,0.12);
-            opacity: 0;
-            visibility: hidden;
+            box-shadow: 0 3px 12px rgba(52, 77, 52, 0.12);
+            opacity: 0; visibility: hidden;
         }
 
-        .music-toggle.visible {
-            opacity: 1;
-            visibility: visible;
-        }
+        .music-toggle.visible { opacity: 1; visibility: visible; }
+        .music-toggle:hover { background: var(--sage-pale); transform: scale(1.08); }
 
-        .music-toggle:hover {
-            background: var(--sage-pale);
-            transform: scale(1.08);
-        }
+        .music-toggle .bars { display: flex; align-items: flex-end; gap: 3px; height: 18px; }
+        .music-toggle .bar { width: 3px; background: currentColor; border-radius: 2px; transition: height 0.3s ease; }
 
-        .music-toggle .bars {
-            display: flex;
-            align-items: flex-end;
-            gap: 3px;
-            height: 18px;
-        }
-
-        .music-toggle .bar {
-            width: 3px;
-            background: currentColor;
-            border-radius: 2px;
-            transition: height 0.3s ease;
-        }
-
-        .music-toggle.playing .bar {
-            animation: soundBar 0.6s ease-in-out infinite alternate;
-        }
-
+        .music-toggle.playing .bar { animation: soundBar 0.6s ease-in-out infinite alternate; }
         .music-toggle.playing .bar:nth-child(1) { animation-delay: 0s; height: 8px; }
         .music-toggle.playing .bar:nth-child(2) { animation-delay: 0.15s; height: 14px; }
         .music-toggle.playing .bar:nth-child(3) { animation-delay: 0.3s; height: 10px; }
         .music-toggle.playing .bar:nth-child(4) { animation-delay: 0.45s; height: 16px; }
-
         .music-toggle:not(.playing) .bar { height: 4px; }
 
         @keyframes soundBar {
@@ -193,65 +164,55 @@
         }
 
         /* ===================== MAIN CONTENT ===================== */
-        .invitation {
-            opacity: 0;
-            transition: opacity 1s ease 0.3s;
-        }
+        .invitation { opacity: 0; transition: opacity 1s ease 0.3s; }
+        .invitation.visible { opacity: 1; }
 
-        .invitation.visible {
-            opacity: 1;
-        }
-
-        /* ===================== HERO / MAIN PAGE ===================== */
+        /* ===================== HERO ===================== */
         .hero {
             min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
+            display: flex; flex-direction: column; align-items: center; justify-content: center;
             text-align: center;
             padding: 3rem 2rem;
-            background: linear-gradient(160deg, #f0f7f0 0%, #e6f0e6 30%, #f2f7f0 60%, #eef4ee 100%);
+            /* Sage-pale anchors hero — same family as footer */
+            background: linear-gradient(160deg, var(--sage-pale) 0%, #e4eee4 40%, var(--sage-pale) 100%);
             position: relative;
             overflow: hidden;
         }
 
-        .hero::before,
-        .hero::after {
+        .hero::before, .hero::after {
             content: '';
             position: absolute;
-            width: 300px;
-            height: 300px;
-            border: 1px solid rgba(138, 171, 138, 0.12);
+            width: 320px; height: 320px;
+            border: 1px solid rgba(138, 171, 138, 0.15);
             border-radius: 50%;
         }
 
-        .hero::before { top: -100px; right: -100px; }
-        .hero::after { bottom: -100px; left: -100px; }
+        .hero::before { top: -120px; right: -120px; }
+        .hero::after  { bottom: -120px; left: -120px; }
 
         .bismillah {
             font-family: 'Amiri', serif;
             font-size: 2rem;
-            color: var(--black);
+            color: var(--ink);
             margin-bottom: 1.5rem;
             font-weight: 700;
             line-height: 1.6;
         }
 
-        .host-names {
-            margin-bottom: 1rem;
-        }
+        .host-names { margin-bottom: 1rem; }
 
         .host-name {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.25rem;
-            font-weight: 700;
-            color: var(--black);
+            /* Cormorant Garamond replaces Playfair Display for headers */
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--ink);
             letter-spacing: 2.5px;
             text-transform: uppercase;
             line-height: 1.6;
         }
 
+        /* Rose reserved for Great Vibes cursive elements only */
         .host-ampersand {
             font-family: 'Great Vibes', cursive;
             font-size: 1.8rem;
@@ -261,10 +222,10 @@
 
         .invitation-text {
             font-size: 1.15rem;
-            color: var(--dark);
+            color: var(--ink-mid);
             margin-bottom: 0.5rem;
             line-height: 1.8;
-            font-weight: 600;
+            font-weight: 500;
         }
 
         .majlis-title {
@@ -275,126 +236,123 @@
         }
 
         .divider {
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            display: flex; align-items: center; justify-content: center;
             gap: 1rem;
             margin: 0.7rem 0;
         }
 
         .divider-line {
-            width: 60px;
-            height: 1px;
+            width: 60px; height: 1px;
             background: var(--sage);
-            opacity: 0.5;
+            opacity: 0.45;
         }
 
+        /* Diamond uses sage, not rose */
         .divider-diamond {
-            width: 7px;
-            height: 7px;
-            border: 1px solid var(--sage);
+            width: 7px; height: 7px;
+            border: 1px solid var(--sage-mid);
             transform: rotate(45deg);
-            opacity: 0.6;
+            opacity: 0.55;
         }
 
         .cucunda-label {
-            font-family: 'Playfair Display', serif;
+            font-family: 'Cormorant Garamond', serif;
             font-size: 1rem;
             letter-spacing: 4px;
             text-transform: uppercase;
-            color: var(--dark);
+            color: var(--ink-mid);
             margin: 0.6rem 0;
-            font-weight: 700;
+            font-weight: 600;
         }
 
-        .children-list {
-            margin-bottom: 1rem;
-        }
+        .children-list { margin-bottom: 1rem; }
 
         .child-name {
-            font-family: 'Playfair Display', serif;
+            font-family: 'Cormorant Garamond', serif;
             font-size: 1.2rem;
-            font-weight: 700;
-            letter-spacing: 1.5px;
-            text-transform: uppercase;
-            line-height: 1.5;
+            font-weight: 600;
+            /* Reduced letter-spacing — reads like a name, not a label */
+            letter-spacing: 0.8px;
+            line-height: 1.55;
             margin-bottom: 0.4rem;
         }
 
-        .child-name.boy { color: var(--blue-muted); }
-        .child-name.girl { color: var(--pink-name); }
+        .child-name.boy  { color: var(--boy-blue); }
+        .child-name.girl { color: var(--girl-rose); }
 
+        /* Rose used here — Great Vibes accent role */
         .child-separator {
             font-family: 'Great Vibes', cursive;
-            font-size: 1.3rem;
+            font-size: 1.4rem;
             color: var(--rose);
             margin: 0.15rem 0;
         }
 
-        .date-highlight {
-            margin: 1.5rem 0 0;
-        }
+        .date-highlight { margin: 1.5rem 0 0; }
 
         .date-highlight-text {
-            font-family: 'Playfair Display', serif;
+            font-family: 'Cormorant Garamond', serif;
             font-size: 2.2rem;
-            font-weight: 700;
-            color: var(--black);
-            letter-spacing: 4px;
+            font-weight: 600;
+            color: var(--ink);
+            letter-spacing: 3px;
             text-transform: uppercase;
         }
 
         .date-highlight-sub {
             font-family: 'Cormorant Garamond', serif;
             font-size: 1.15rem;
-            color: var(--text);
+            color: var(--ink-light);
             margin-top: 0.4rem;
+            font-weight: 500;
+        }
+
+        /* ===================== SECTIONS — ALTERNATING RHYTHM ===================== */
+        section { padding: 4rem 1.5rem; }
+
+        .section-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.8rem;
+            text-align: center;
+            color: var(--ink);
+            margin-bottom: 0.5rem;
             font-weight: 600;
         }
 
-        /* ===================== NAVIGATION SECTION ===================== */
-        .venue-section {
-            background: #f5f0e8;
-            color: var(--dark);
+        /* Sage ornament consistent across all sections */
+        .section-ornament {
             text-align: center;
+            color: var(--sage-mid);
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0.45;
         }
 
-        .venue-section .section-title {
-            color: #5a4a3a;
-        }
-
-        .venue-section .section-ornament {
-            color: #c4a882;
-            opacity: 0.6;
-        }
+        /* ===================== VENUE — CREAM BG ===================== */
+        .venue-section { background: var(--cream); }
 
         .venue-address {
             font-size: 1.2rem;
-            color: #5a4a3a;
+            color: var(--ink-mid);
             max-width: 400px;
             margin: 0 auto 1.2rem;
             line-height: 1.9;
-            font-weight: 600;
+            font-weight: 500;
+            text-align: center;
         }
 
         .nav-hint {
             font-size: 0.95rem;
-            color: #8a7a6a;
+            color: var(--ink-light);
             margin-bottom: 1.8rem;
             font-style: italic;
+            text-align: center;
         }
 
-        .map-buttons {
-            display: flex;
-            gap: 1.5rem;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
+        .map-buttons { display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap; }
 
         .map-btn {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
+            display: flex; flex-direction: column; align-items: center;
             gap: 10px;
             padding: 22px 32px;
             border-radius: 14px;
@@ -405,129 +363,76 @@
         }
 
         .map-btn-icon {
-            width: 56px;
-            height: 56px;
+            width: 56px; height: 56px;
             border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            display: flex; align-items: center; justify-content: center;
             transition: all 0.3s ease;
         }
 
-        .map-btn-icon svg {
-            width: 28px;
-            height: 28px;
-            stroke-width: 1.8;
-        }
+        .map-btn-icon svg { width: 28px; height: 28px; stroke-width: 1.8; }
 
         .map-btn-label {
-            font-family: 'Playfair Display', serif;
+            font-family: 'Cormorant Garamond', serif;
             font-size: 1rem;
-            font-weight: 700;
+            font-weight: 600;
             letter-spacing: 1px;
         }
 
-        .map-btn-sub {
-            font-size: 0.75rem;
-            opacity: 0.6;
-        }
+        .map-btn-sub { font-size: 0.75rem; opacity: 0.55; }
 
+        /* Both nav buttons use sage palette — consistent with anchor colour */
         .btn-waze {
             background: #fff;
-            border: 1.5px solid #c4a882;
-            color: #5a4a3a;
-            box-shadow: 0 2px 8px rgba(90, 74, 58, 0.08);
+            border: 1.5px solid var(--sage-light);
+            color: var(--ink-mid);
+            box-shadow: 0 2px 8px rgba(52, 77, 52, 0.08);
         }
 
-        .btn-waze .map-btn-icon {
-            background: #ebe3d6;
-            color: #6b5a48;
-        }
+        .btn-waze .map-btn-icon { background: var(--sage-pale); color: var(--sage-deep); }
 
         .btn-waze:hover {
             transform: translateY(-4px);
-            box-shadow: 0 8px 24px rgba(90, 74, 58, 0.15);
-            background: #faf6f0;
+            box-shadow: 0 8px 24px rgba(52, 77, 52, 0.15);
+            background: var(--sage-pale);
         }
 
-        .btn-waze:hover .map-btn-icon {
-            background: #c4a882;
-            color: #fff;
-        }
+        .btn-waze:hover .map-btn-icon { background: var(--sage); color: #fff; }
 
+        /* Google Maps gets rose as accent — purposeful, single assignment */
         .btn-gmaps {
             background: #fff;
-            border: 1.5px solid var(--rose-light);
-            color: #6b4a52;
-            box-shadow: 0 2px 8px rgba(107, 74, 82, 0.08);
+            border: 1.5px solid var(--rose-pale);
+            color: var(--ink-mid);
+            box-shadow: 0 2px 8px rgba(158, 101, 112, 0.08);
         }
 
-        .btn-gmaps .map-btn-icon {
-            background: #f2e4e7;
-            color: #8a5a64;
-        }
+        .btn-gmaps .map-btn-icon { background: var(--rose-pale); color: var(--rose-deep); }
 
         .btn-gmaps:hover {
             transform: translateY(-4px);
-            box-shadow: 0 8px 24px rgba(107, 74, 82, 0.15);
-            background: #fdf6f7;
+            box-shadow: 0 8px 24px rgba(158, 101, 112, 0.15);
+            background: #fdf8f8;
         }
 
-        .btn-gmaps:hover .map-btn-icon {
-            background: var(--rose);
-            color: #fff;
+        .btn-gmaps:hover .map-btn-icon { background: var(--rose); color: #fff; }
+
+        @keyframes pulse-sage {
+            0%   { box-shadow: 0 0 0 0 rgba(138, 171, 138, 0.4); }
+            70%  { box-shadow: 0 0 0 12px rgba(138, 171, 138, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(138, 171, 138, 0); }
         }
 
-        @keyframes pulse-waze {
-            0% { box-shadow: 0 0 0 0 rgba(196, 168, 130, 0.35); }
-            70% { box-shadow: 0 0 0 12px rgba(196, 168, 130, 0); }
-            100% { box-shadow: 0 0 0 0 rgba(196, 168, 130, 0); }
-        }
-
-        @keyframes pulse-gmaps {
-            0% { box-shadow: 0 0 0 0 rgba(201, 144, 154, 0.35); }
-            70% { box-shadow: 0 0 0 12px rgba(201, 144, 154, 0); }
+        @keyframes pulse-rose {
+            0%   { box-shadow: 0 0 0 0 rgba(201, 144, 154, 0.35); }
+            70%  { box-shadow: 0 0 0 12px rgba(201, 144, 154, 0); }
             100% { box-shadow: 0 0 0 0 rgba(201, 144, 154, 0); }
         }
 
-        .btn-waze .map-btn-icon { animation: pulse-waze 2.5s ease infinite; }
-        .btn-gmaps .map-btn-icon { animation: pulse-gmaps 2.5s ease infinite; }
+        .btn-waze  .map-btn-icon { animation: pulse-sage 2.5s ease infinite; }
+        .btn-gmaps .map-btn-icon { animation: pulse-rose 2.5s ease infinite; }
 
-        /* ===================== SECTION STYLING ===================== */
-        section {
-            padding: 4rem 1.5rem;
-        }
-
-        .section-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.8rem;
-            text-align: center;
-            color: var(--black);
-            margin-bottom: 0.5rem;
-            font-weight: 700;
-        }
-
-        .section-ornament {
-            text-align: center;
-            color: var(--sage);
-            font-size: 1.5rem;
-            margin-bottom: 2rem;
-            opacity: 0.5;
-        }
-
-        /* ===================== SCHEDULE (TIMELINE) ===================== */
-        .schedule-section {
-            background: #faf8f4;
-        }
-
-        .schedule-section .section-title {
-            color: #5a4a3a;
-        }
-
-        .schedule-section .section-ornament {
-            color: var(--rose);
-            opacity: 0.4;
-        }
+        /* ===================== SCHEDULE — SAGE-PALE BG ===================== */
+        .schedule-section { background: var(--sage-pale); }
 
         .timeline {
             max-width: 500px;
@@ -539,11 +444,10 @@
         .timeline::before {
             content: '';
             position: absolute;
-            left: 14px;
-            top: 0;
-            bottom: 0;
+            left: 14px; top: 0; bottom: 0;
             width: 2px;
-            background: linear-gradient(to bottom, #c4a882, #ddd0bf);
+            background: linear-gradient(to bottom, var(--sage), var(--sage-light));
+            opacity: 0.6;
         }
 
         .timeline-item {
@@ -555,102 +459,86 @@
         .timeline-item::before {
             content: '';
             position: absolute;
-            left: -33px;
-            top: 6px;
-            width: 12px;
-            height: 12px;
+            left: -33px; top: 6px;
+            width: 12px; height: 12px;
             border-radius: 50%;
-            background: #c4a882;
-            border: 3px solid #faf8f4;
-            box-shadow: 0 0 0 2px #c4a882;
+            background: var(--sage);
+            border: 3px solid var(--sage-pale);
+            box-shadow: 0 0 0 2px var(--sage);
         }
 
         .timeline-time {
-            font-family: 'Playfair Display', serif;
+            font-family: 'Cormorant Garamond', serif;
             font-size: 0.9rem;
             letter-spacing: 2px;
-            color: #8a7050;
-            font-weight: 700;
+            color: var(--sage-deep);
+            font-weight: 600;
         }
 
         .timeline-event {
             font-size: 1.25rem;
-            color: #3a3028;
+            color: var(--ink);
             margin-top: 0.25rem;
-            font-weight: 600;
+            font-weight: 500;
         }
 
-        /* ===================== DOA SECTION ===================== */
-        .doa-section {
-            background: #f0ebe3;
-            text-align: center;
-        }
-
-        .doa-section .section-title {
-            color: #5a4a3a;
-        }
-
-        .doa-section .section-ornament {
-            color: #c4a882;
-            opacity: 0.5;
-        }
+        /* ===================== DOA — CREAM BG ===================== */
+        .doa-section { background: var(--cream); text-align: center; }
 
         .doa-text {
             font-size: 1.35rem;
-            color: #4a3e32;
+            color: var(--ink-mid);
             max-width: 580px;
             margin: 0 auto 1rem;
             line-height: 2;
             font-style: italic;
-            font-weight: 500;
+            font-weight: 400;
         }
 
         .doa-translation {
             font-size: 1.05rem;
-            color: #7a6e62;
+            color: var(--ink-light);
             max-width: 480px;
             margin: 0 auto;
             line-height: 1.8;
-            font-weight: 500;
+            font-weight: 400;
         }
 
-        /* ===================== FOOTER ===================== */
+        /* ===================== FOOTER — SAGE DARK (closes the sage frame) ===================== */
         footer {
-            background: #3a3028;
-            color: rgba(235, 227, 214, 0.5);
+            background: var(--sage-dark);
+            color: rgba(181, 204, 181, 0.55);
             text-align: center;
             padding: 2rem;
             font-size: 0.9rem;
         }
 
         footer .family-name {
-            font-family: 'Playfair Display', serif;
-            color: #ddd0bf;
+            font-family: 'Cormorant Garamond', serif;
+            color: var(--sage-light);
             font-size: 1.15rem;
             margin-bottom: 0.4rem;
-            font-weight: 700;
+            font-weight: 600;
+            letter-spacing: 1px;
         }
 
         /* ===================== SCROLL ANIMATIONS ===================== */
         .fade-in {
             opacity: 0;
-            transform: translateY(30px);
+            transform: translateY(28px);
             transition: opacity 0.8s ease, transform 0.8s ease;
         }
 
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
+        .fade-in.visible { opacity: 1; transform: translateY(0); }
 
         /* ===================== RESPONSIVE ===================== */
         @media (max-width: 600px) {
             .bismillah { font-size: 1.5rem; }
-            .host-name { font-size: 1.05rem; letter-spacing: 1px; }
+            .host-name { font-size: 1.1rem; letter-spacing: 1.5px; }
             .majlis-title { font-size: 2.5rem; }
             .child-name { font-size: 1rem; }
             .date-highlight-text { font-size: 1.6rem; letter-spacing: 2px; }
-            .section-title { font-size: 1.4rem; }
+            .section-title { font-size: 1.5rem; }
             .map-btn { min-width: 135px; padding: 18px 22px; }
             .map-btn-icon { width: 48px; height: 48px; }
             .map-btn-icon svg { width: 24px; height: 24px; }
@@ -660,7 +548,7 @@
         }
 
         @media (max-width: 380px) {
-            .child-name { font-size: 0.9rem; letter-spacing: 1px; }
+            .child-name { font-size: 0.9rem; }
             .date-highlight-text { font-size: 1.35rem; }
         }
     </style>
@@ -697,7 +585,7 @@
     <!-- Main Invitation Content -->
     <div class="invitation" id="invitation">
 
-        <!-- Hero / Main Page -->
+        <!-- Hero — sage-pale background (opens the sage frame) -->
         <section class="hero">
 
             <div class="bismillah">بسم الله الرحمن الرحيم</div>
@@ -750,7 +638,7 @@
             </div>
         </section>
 
-        <!-- Lokasi & Navigation -->
+        <!-- Venue — cream background (alternates with sage-pale) -->
         <section class="venue-section">
             <h2 class="section-title fade-in">Lokasi Majlis</h2>
             <div class="section-ornament fade-in">&#10044;</div>
@@ -761,10 +649,6 @@
             </p>
             <p class="nav-hint fade-in">Tekan untuk navigasi ke lokasi</p>
             <div class="map-buttons fade-in">
-                <!--
-                    CHANGE: Update latitude & longitude to your venue's exact coordinates.
-                    Placeholder: 5.3717, 100.5609 (near Kulim, Kedah)
-                -->
                 <a href="https://waze.com/ul?ll=5.3717,100.5609&navigate=yes"
                    target="_blank" rel="noopener noreferrer" class="map-btn btn-waze">
                     <div class="map-btn-icon">
@@ -790,7 +674,7 @@
             </div>
         </section>
 
-        <!-- Atur Cara Majlis (Schedule) -->
+        <!-- Schedule — sage-pale background (alternates back) -->
         <section class="schedule-section">
             <h2 class="section-title fade-in">Atur Cara Majlis</h2>
             <div class="section-ornament fade-in">&#10044;</div>
@@ -814,7 +698,7 @@
             </div>
         </section>
 
-        <!-- Doa Section -->
+        <!-- Doa — cream background (alternates again) -->
         <section class="doa-section">
             <h2 class="section-title fade-in">Doa Restu</h2>
             <div class="section-ornament fade-in">&#10044;</div>
@@ -827,7 +711,7 @@
             </p>
         </section>
 
-        <!-- Footer -->
+        <!-- Footer — sage-dark (closes the sage frame opened by the hero) -->
         <footer>
             <div class="family-name">Keluarga Ahmad Baharudin &amp; Mastura</div>
             <p>&copy; 2026 &middot; Majlis Aqiqah</p>
@@ -837,10 +721,10 @@
 
     <script>
         const splashScreen = document.getElementById('splashScreen');
-        const openBtn = document.getElementById('openInvitation');
-        const invitation = document.getElementById('invitation');
-        const bgMusic = document.getElementById('bgMusic');
-        const musicToggle = document.getElementById('musicToggle');
+        const openBtn      = document.getElementById('openInvitation');
+        const invitation   = document.getElementById('invitation');
+        const bgMusic      = document.getElementById('bgMusic');
+        const musicToggle  = document.getElementById('musicToggle');
         let isMusicPlaying = false;
 
         openBtn.addEventListener('click', () => {
@@ -869,9 +753,7 @@
 
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
+                if (entry.isIntersecting) entry.target.classList.add('visible');
             });
         }, { threshold: 0.15 });
 
