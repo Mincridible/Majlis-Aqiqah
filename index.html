@@ -6,7 +6,7 @@
     <title>Majlis Aqiqah</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Great+Vibes&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Great+Vibes&family=Amiri:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
     <style>
         *, *::before, *::after {
             margin: 0;
@@ -15,14 +15,23 @@
         }
 
         :root {
-            --gold: #c9a84c;
-            --gold-light: #e8d5a3;
-            --gold-dark: #a07c2a;
-            --cream: #faf6ed;
-            --dark: #2c2417;
-            --green-dark: #1a3a2a;
-            --green-mid: #2d5e3f;
-            --green-light: #4a8c5e;
+            --green-pastel: #c5e6cc;
+            --green-pale: #dff0e3;
+            --green-bg: #eaf5ed;
+            --green-soft: #a8d8b0;
+            --green-text: #3a6b4a;
+            --green-dark: #2c5e3a;
+            --pink-pastel: #f2c4d0;
+            --pink-soft: #e8a0b4;
+            --pink-text: #b44872;
+            --pink-muted: #d4849e;
+            --blue-pastel: #a8c8e8;
+            --blue-text: #2c5f8a;
+            --cream: #fafdf7;
+            --white: #ffffff;
+            --dark: #3a3a3a;
+            --text: #4a4a4a;
+            --text-light: #6a6a6a;
         }
 
         html {
@@ -36,7 +45,7 @@
             overflow-x: hidden;
         }
 
-        /* Splash / Welcome Screen */
+        /* ===================== SPLASH SCREEN ===================== */
         .splash-screen {
             position: fixed;
             inset: 0;
@@ -45,7 +54,7 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            background: linear-gradient(135deg, var(--green-dark) 0%, #1a2f25 50%, var(--green-dark) 100%);
+            background: linear-gradient(160deg, var(--green-pale) 0%, var(--green-pastel) 50%, var(--green-pale) 100%);
             transition: opacity 0.8s ease, visibility 0.8s ease;
         }
 
@@ -61,90 +70,69 @@
         }
 
         .splash-bismillah {
-            font-family: 'Great Vibes', cursive;
-            font-size: 1.5rem;
-            color: var(--gold-light);
-            margin-bottom: 1rem;
-            opacity: 0.9;
+            font-family: 'Amiri', serif;
+            font-size: 2rem;
+            color: var(--green-dark);
+            margin-bottom: 1.5rem;
+            line-height: 1.4;
         }
 
         .splash-title {
             font-family: 'Playfair Display', serif;
-            font-size: 2rem;
-            color: var(--gold);
-            margin-bottom: 0.5rem;
-            letter-spacing: 3px;
+            font-size: 1.8rem;
+            color: var(--green-dark);
+            margin-bottom: 0.4rem;
+            letter-spacing: 4px;
+            text-transform: uppercase;
         }
 
         .splash-subtitle {
             font-family: 'Cormorant Garamond', serif;
             font-size: 1.1rem;
-            color: var(--gold-light);
+            color: var(--text);
             margin-bottom: 2.5rem;
             font-style: italic;
         }
 
-        .splash-ornament {
-            color: var(--gold);
-            font-size: 2rem;
-            margin-bottom: 2rem;
-            opacity: 0.6;
-        }
-
         .open-btn {
-            padding: 14px 48px;
+            padding: 14px 50px;
             font-family: 'Playfair Display', serif;
             font-size: 1rem;
             letter-spacing: 3px;
             text-transform: uppercase;
-            color: var(--gold);
-            background: transparent;
-            border: 2px solid var(--gold);
+            color: var(--white);
+            background: var(--pink-muted);
+            border: none;
+            border-radius: 50px;
             cursor: pointer;
             transition: all 0.4s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .open-btn::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: var(--gold);
-            transition: left 0.4s ease;
-            z-index: -1;
+            box-shadow: 0 4px 18px rgba(180, 72, 114, 0.2);
         }
 
         .open-btn:hover {
-            color: var(--green-dark);
+            background: var(--pink-text);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 24px rgba(180, 72, 114, 0.3);
         }
 
-        .open-btn:hover::before {
-            left: 0;
-        }
-
-        /* Music Control */
+        /* ===================== MUSIC CONTROL ===================== */
         .music-toggle {
             position: fixed;
             bottom: 24px;
             right: 24px;
             z-index: 999;
-            width: 50px;
-            height: 50px;
+            width: 48px;
+            height: 48px;
             border-radius: 50%;
-            border: 2px solid var(--gold);
-            background: var(--green-dark);
-            color: var(--gold);
+            border: 2px solid var(--pink-pastel);
+            background: var(--white);
+            color: var(--pink-muted);
             cursor: pointer;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.2rem;
             transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            box-shadow: 0 3px 12px rgba(0,0,0,0.1);
             opacity: 0;
             visibility: hidden;
         }
@@ -155,9 +143,9 @@
         }
 
         .music-toggle:hover {
-            background: var(--gold);
-            color: var(--green-dark);
-            transform: scale(1.1);
+            background: var(--pink-pastel);
+            color: var(--white);
+            transform: scale(1.08);
         }
 
         .music-toggle .bars {
@@ -190,7 +178,7 @@
             100% { height: 18px; }
         }
 
-        /* Main Content */
+        /* ===================== MAIN CONTENT ===================== */
         .invitation {
             opacity: 0;
             transition: opacity 1s ease 0.3s;
@@ -200,7 +188,7 @@
             opacity: 1;
         }
 
-        /* Hero Section */
+        /* ===================== HERO SECTION ===================== */
         .hero {
             min-height: 100vh;
             display: flex;
@@ -208,8 +196,8 @@
             align-items: center;
             justify-content: center;
             text-align: center;
-            padding: 2rem;
-            background: linear-gradient(135deg, var(--green-dark) 0%, #1a2f25 50%, var(--green-dark) 100%);
+            padding: 3rem 1.5rem;
+            background: linear-gradient(160deg, var(--green-pale) 0%, var(--green-pastel) 40%, var(--green-pale) 100%);
             position: relative;
             overflow: hidden;
         }
@@ -218,80 +206,57 @@
         .hero::after {
             content: '';
             position: absolute;
-            width: 300px;
-            height: 300px;
-            border: 1px solid rgba(201, 168, 76, 0.1);
+            width: 280px;
+            height: 280px;
+            border: 1px solid rgba(168, 216, 176, 0.3);
             border-radius: 50%;
         }
 
-        .hero::before {
-            top: -100px;
-            right: -100px;
-        }
-
-        .hero::after {
-            bottom: -100px;
-            left: -100px;
-        }
-
-        .hero-ornament-top,
-        .hero-ornament-bottom {
-            color: var(--gold);
-            font-size: 2.5rem;
-            opacity: 0.4;
-        }
-
-        .hero-ornament-top { margin-bottom: 1.5rem; }
-        .hero-ornament-bottom { margin-top: 1.5rem; }
+        .hero::before { top: -80px; right: -80px; }
+        .hero::after { bottom: -80px; left: -80px; }
 
         .bismillah {
-            font-size: 1.8rem;
-            color: var(--gold-light);
-            margin-bottom: 0.5rem;
-            font-family: 'Great Vibes', cursive;
-        }
-
-        .hero-label {
-            font-family: 'Playfair Display', serif;
-            font-size: 0.9rem;
-            letter-spacing: 6px;
-            text-transform: uppercase;
-            color: var(--gold);
-            margin-bottom: 0.5rem;
-        }
-
-        .hero-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 3rem;
-            color: var(--gold);
-            margin-bottom: 0.25rem;
-            line-height: 1.2;
-        }
-
-        .hero-subtitle {
-            font-family: 'Great Vibes', cursive;
-            font-size: 2.5rem;
-            color: var(--gold-light);
-            margin-bottom: 1rem;
-        }
-
-        .hero-child-name {
-            font-family: 'Playfair Display', serif;
-            font-size: 3.5rem;
+            font-family: 'Amiri', serif;
+            font-size: 2.2rem;
+            color: var(--green-dark);
+            margin-bottom: 1.8rem;
             font-weight: 700;
-            color: #fff;
-            letter-spacing: 4px;
-            text-shadow: 0 2px 20px rgba(201, 168, 76, 0.3);
-            margin-bottom: 1rem;
+            line-height: 1.6;
         }
 
-        .hero-dua {
-            font-size: 1.1rem;
-            color: var(--gold-light);
-            font-style: italic;
-            max-width: 500px;
+        .host-names {
+            margin-bottom: 1.2rem;
+        }
+
+        .host-name {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--green-dark);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            line-height: 1.6;
+        }
+
+        .host-ampersand {
+            font-family: 'Great Vibes', cursive;
+            font-size: 1.8rem;
+            color: var(--pink-muted);
+            margin: 0.15rem 0;
+        }
+
+        .invitation-text {
+            font-size: 1.15rem;
+            color: var(--text);
+            margin-bottom: 0.6rem;
             line-height: 1.8;
-            opacity: 0.8;
+        }
+
+        .majlis-title {
+            font-family: 'Great Vibes', cursive;
+            font-size: 3rem;
+            color: var(--green-dark);
+            margin-bottom: 0.6rem;
         }
 
         .divider {
@@ -303,23 +268,178 @@
         }
 
         .divider-line {
-            width: 60px;
+            width: 55px;
             height: 1px;
-            background: var(--gold);
-            opacity: 0.5;
+            background: var(--green-soft);
         }
 
         .divider-diamond {
-            width: 8px;
-            height: 8px;
-            border: 1px solid var(--gold);
+            width: 7px;
+            height: 7px;
+            border: 1px solid var(--green-soft);
             transform: rotate(45deg);
-            opacity: 0.6;
         }
 
-        /* Section Styling */
+        .cucunda-label {
+            font-family: 'Playfair Display', serif;
+            font-size: 1rem;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: var(--text);
+            margin: 0.8rem 0;
+            font-weight: 600;
+        }
+
+        .children-list {
+            margin-bottom: 1rem;
+        }
+
+        .child-name {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.15rem;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            line-height: 1.5;
+            margin-bottom: 0.5rem;
+        }
+
+        .child-name.boy { color: var(--blue-text); }
+        .child-name.girl { color: var(--pink-text); }
+
+        .child-separator {
+            font-family: 'Great Vibes', cursive;
+            font-size: 1.4rem;
+            color: var(--pink-muted);
+            margin: 0.2rem 0;
+        }
+
+        /* ===================== NAVIGATION SECTION (FIRST) ===================== */
+        .nav-section {
+            background: var(--white);
+            text-align: center;
+            padding: 3rem 1.5rem;
+            border-bottom: 1px solid var(--green-pale);
+        }
+
+        .nav-section .section-title {
+            color: var(--green-dark);
+        }
+
+        .nav-address {
+            font-size: 1.15rem;
+            color: var(--text);
+            line-height: 1.9;
+            margin-bottom: 1.8rem;
+        }
+
+        .nav-hint {
+            font-size: 0.95rem;
+            color: var(--text-light);
+            margin-bottom: 1.2rem;
+            font-style: italic;
+        }
+
+        .map-buttons {
+            display: flex;
+            gap: 1.2rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .map-btn {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            padding: 20px 28px;
+            border-radius: 14px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            min-width: 150px;
+        }
+
+        .map-btn-icon {
+            width: 54px;
+            height: 54px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .map-btn-icon svg {
+            width: 28px;
+            height: 28px;
+        }
+
+        .map-btn-label {
+            font-family: 'Playfair Display', serif;
+            font-size: 0.95rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+
+        .map-btn-hint {
+            font-size: 0.75rem;
+            opacity: 0.7;
+        }
+
+        .btn-waze {
+            background: #eef9ff;
+            border: 2px solid #9ad8f5;
+            color: #1a7ea1;
+        }
+
+        .btn-waze .map-btn-icon {
+            background: #33ccff;
+            color: var(--white);
+            box-shadow: 0 3px 12px rgba(51, 204, 255, 0.3);
+        }
+
+        .btn-waze:hover {
+            background: #d0f0ff;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(51, 204, 255, 0.25);
+        }
+
+        .btn-gmaps {
+            background: #fef2f1;
+            border: 2px solid #f5b8b2;
+            color: #c5221f;
+        }
+
+        .btn-gmaps .map-btn-icon {
+            background: #ea4335;
+            color: var(--white);
+            box-shadow: 0 3px 12px rgba(234, 67, 53, 0.3);
+        }
+
+        .btn-gmaps:hover {
+            background: #fde0dd;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(234, 67, 53, 0.25);
+        }
+
+        @keyframes pulse-waze {
+            0% { box-shadow: 0 0 0 0 rgba(51, 204, 255, 0.4); }
+            70% { box-shadow: 0 0 0 10px rgba(51, 204, 255, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(51, 204, 255, 0); }
+        }
+
+        @keyframes pulse-gmaps {
+            0% { box-shadow: 0 0 0 0 rgba(234, 67, 53, 0.4); }
+            70% { box-shadow: 0 0 0 10px rgba(234, 67, 53, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(234, 67, 53, 0); }
+        }
+
+        .btn-waze .map-btn-icon { animation: pulse-waze 2.5s ease infinite; }
+        .btn-gmaps .map-btn-icon { animation: pulse-gmaps 2.5s ease infinite; }
+
+        /* ===================== SECTION STYLING ===================== */
         section {
-            padding: 4rem 1.5rem;
+            padding: 3.5rem 1.5rem;
         }
 
         .section-title {
@@ -330,23 +450,44 @@
             margin-bottom: 0.5rem;
         }
 
-        .section-ornament {
-            text-align: center;
-            color: var(--gold);
-            font-size: 1.5rem;
+        .section-divider {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.8rem;
             margin-bottom: 2rem;
-            opacity: 0.5;
         }
 
-        /* Details Section */
+        .section-divider-line {
+            width: 40px;
+            height: 1px;
+            background: var(--pink-pastel);
+        }
+
+        .section-divider-dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--pink-pastel);
+        }
+
+        /* ===================== BUTIRAN MAJLIS (DETAILS) ===================== */
         .details-section {
-            background: #fff;
+            background: var(--green-bg);
+            padding: 4rem 1.5rem;
+        }
+
+        .details-section .section-title {
+            font-size: 2.2rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 0.8rem;
         }
 
         .details-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 1.5rem;
             max-width: 800px;
             margin: 0 auto;
         }
@@ -354,202 +495,120 @@
         .detail-card {
             text-align: center;
             padding: 2rem 1.5rem;
-            border: 1px solid rgba(201, 168, 76, 0.2);
-            border-radius: 8px;
+            background: var(--white);
+            border: 1px solid var(--green-pastel);
+            border-radius: 10px;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
         .detail-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 8px 30px rgba(201, 168, 76, 0.1);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 24px rgba(58, 107, 74, 0.08);
         }
 
         .detail-icon {
-            font-size: 2rem;
-            margin-bottom: 1rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .detail-icon svg {
+            width: 32px;
+            height: 32px;
+            color: var(--green-text);
+            opacity: 0.7;
         }
 
         .detail-label {
             font-family: 'Playfair Display', serif;
-            font-size: 0.85rem;
+            font-size: 0.9rem;
             letter-spacing: 3px;
             text-transform: uppercase;
-            color: var(--gold-dark);
-            margin-bottom: 0.5rem;
+            color: var(--text-light);
+            margin-bottom: 0.6rem;
+            font-weight: 600;
         }
 
         .detail-value {
-            font-size: 1.3rem;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.35rem;
             color: var(--dark);
             line-height: 1.6;
         }
 
         .detail-value strong {
-            font-weight: 600;
+            font-weight: 700;
             color: var(--green-dark);
         }
 
-        /* Venue / Map Section */
-        .venue-section {
-            background: var(--green-dark);
-            color: #fff;
+        /* ===================== ATUR CARA (SCHEDULE) ===================== */
+        .schedule-section {
+            background: var(--white);
             text-align: center;
         }
 
-        .venue-section .section-title {
-            color: var(--gold);
+        .schedule-grid {
+            max-width: 480px;
+            margin: 0 auto;
         }
 
-        .venue-name {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.5rem;
-            color: var(--gold-light);
-            margin-bottom: 0.5rem;
-        }
-
-        .venue-address {
-            font-size: 1.1rem;
-            color: rgba(255, 255, 255, 0.7);
-            max-width: 500px;
-            margin: 0 auto 2rem;
-            line-height: 1.8;
-        }
-
-        .map-buttons {
+        .schedule-item {
             display: flex;
-            gap: 1rem;
+            align-items: center;
             justify-content: center;
-            flex-wrap: wrap;
+            gap: 1rem;
+            padding: 1rem 0;
+            border-bottom: 1px solid var(--green-pale);
+            font-size: 1.15rem;
         }
 
-        .map-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            padding: 14px 32px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-family: 'Playfair Display', serif;
-            font-size: 1rem;
-            letter-spacing: 1px;
-            transition: all 0.3s ease;
+        .schedule-item:last-child {
+            border-bottom: none;
+        }
+
+        .schedule-time {
+            font-weight: 500;
+            color: var(--dark);
+            min-width: 160px;
+            text-align: right;
+        }
+
+        .schedule-dash {
+            color: var(--pink-muted);
             font-weight: 600;
         }
 
-        .map-btn svg {
-            width: 22px;
-            height: 22px;
-            flex-shrink: 0;
+        .schedule-event {
+            color: var(--green-dark);
+            font-weight: 600;
+            min-width: 80px;
+            text-align: left;
         }
 
-        .btn-waze {
-            background: #33ccff;
-            color: #1a1a2e;
-        }
-
-        .btn-waze:hover {
-            background: #00b8f0;
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(51, 204, 255, 0.4);
-        }
-
-        .btn-gmaps {
-            background: #4285f4;
-            color: #fff;
-        }
-
-        .btn-gmaps:hover {
-            background: #3367d6;
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(66, 133, 244, 0.4);
-        }
-
-        /* Tentative / Schedule Section */
-        .schedule-section {
-            background: #fff;
-        }
-
-        .timeline {
-            max-width: 500px;
-            margin: 0 auto;
-            position: relative;
-            padding-left: 40px;
-        }
-
-        .timeline::before {
-            content: '';
-            position: absolute;
-            left: 14px;
-            top: 0;
-            bottom: 0;
-            width: 2px;
-            background: linear-gradient(to bottom, var(--gold), var(--gold-light));
-        }
-
-        .timeline-item {
-            position: relative;
-            margin-bottom: 2rem;
-            padding-left: 1rem;
-        }
-
-        .timeline-item::before {
-            content: '';
-            position: absolute;
-            left: -33px;
-            top: 6px;
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            background: var(--gold);
-            border: 3px solid var(--cream);
-            box-shadow: 0 0 0 2px var(--gold);
-        }
-
-        .timeline-time {
-            font-family: 'Playfair Display', serif;
-            font-size: 0.85rem;
-            letter-spacing: 2px;
-            color: var(--gold-dark);
-            text-transform: uppercase;
-        }
-
-        .timeline-event {
-            font-size: 1.2rem;
-            color: var(--dark);
-            margin-top: 0.25rem;
-        }
-
-        /* Doa Section */
+        /* ===================== DOA SECTION ===================== */
         .doa-section {
-            background: linear-gradient(135deg, var(--green-dark) 0%, #1a2f25 100%);
+            background: var(--green-bg);
             text-align: center;
-            color: #fff;
-        }
-
-        .doa-section .section-title {
-            color: var(--gold);
         }
 
         .doa-text {
-            font-size: 1.5rem;
-            color: var(--gold-light);
-            max-width: 600px;
+            font-size: 1.3rem;
+            color: var(--green-dark);
+            max-width: 550px;
             margin: 0 auto 1rem;
             line-height: 2;
             font-style: italic;
         }
 
         .doa-translation {
-            font-size: 1rem;
-            color: rgba(255, 255, 255, 0.6);
-            max-width: 500px;
+            font-size: 1.05rem;
+            color: var(--text-light);
+            max-width: 480px;
             margin: 0 auto;
             line-height: 1.8;
         }
 
-        /* Footer */
+        /* ===================== FOOTER ===================== */
         footer {
-            background: var(--dark);
+            background: var(--green-dark);
             color: rgba(255, 255, 255, 0.5);
             text-align: center;
             padding: 2rem;
@@ -558,12 +617,12 @@
 
         footer .family-name {
             font-family: 'Playfair Display', serif;
-            color: var(--gold);
-            font-size: 1.2rem;
-            margin-bottom: 0.5rem;
+            color: var(--green-pastel);
+            font-size: 1.15rem;
+            margin-bottom: 0.4rem;
         }
 
-        /* Scroll Animations */
+        /* ===================== SCROLL ANIMATIONS ===================== */
         .fade-in {
             opacity: 0;
             transform: translateY(30px);
@@ -575,47 +634,52 @@
             transform: translateY(0);
         }
 
-        /* Responsive */
+        /* ===================== RESPONSIVE ===================== */
         @media (max-width: 600px) {
-            .hero-title { font-size: 2rem; }
-            .hero-subtitle { font-size: 1.8rem; }
-            .hero-child-name { font-size: 2.5rem; }
-            .bismillah { font-size: 1.4rem; }
-            .section-title { font-size: 1.5rem; }
-            .map-btn { padding: 12px 24px; font-size: 0.9rem; }
+            .bismillah { font-size: 1.6rem; }
+            .host-name { font-size: 1.05rem; letter-spacing: 1px; }
+            .majlis-title { font-size: 2.4rem; }
+            .child-name { font-size: 1rem; }
+            .details-section .section-title { font-size: 1.7rem; letter-spacing: 2px; }
+            .section-title { font-size: 1.4rem; }
+            .map-btn { min-width: 130px; padding: 16px 20px; }
+            .map-btn-icon { width: 46px; height: 46px; }
+            .map-btn-icon svg { width: 24px; height: 24px; }
             .detail-card { padding: 1.5rem 1rem; }
-            .doa-text { font-size: 1.2rem; }
-            .splash-title { font-size: 1.5rem; }
+            .detail-value { font-size: 1.2rem; }
+            .doa-text { font-size: 1.1rem; }
+            .splash-title { font-size: 1.4rem; }
+            .splash-bismillah { font-size: 1.5rem; }
+            .schedule-time { min-width: 130px; font-size: 1rem; }
+            .schedule-event { font-size: 1rem; }
+        }
+
+        @media (max-width: 380px) {
+            .child-name { font-size: 0.9rem; letter-spacing: 1px; }
+            .detail-value { font-size: 1.1rem; }
         }
     </style>
 </head>
 <body>
 
-    <!-- Splash Screen -->
+    <!-- =================== SPLASH SCREEN =================== -->
     <div class="splash-screen" id="splashScreen">
         <div class="splash-content">
-            <div class="splash-ornament">&#10022;</div>
-            <div class="splash-bismillah">Bismillahirrahmanirrahim</div>
-            <div class="splash-title">MAJLIS AQIQAH</div>
-            <div class="splash-subtitle">You are cordially invited</div>
-            <button class="open-btn" id="openInvitation" aria-label="Open Invitation">
+            <div class="splash-bismillah">&#65010;</div>
+            <div class="splash-title">Majlis Aqiqah</div>
+            <div class="splash-subtitle">Anda dijemput dengan penuh hormat</div>
+            <button class="open-btn" id="openInvitation" aria-label="Buka Jemputan">
                 Buka Jemputan
             </button>
         </div>
     </div>
 
     <!-- Background Music -->
-    <!--
-        INSTRUCTIONS: Replace the src below with your own audio file.
-        Place your .mp3 file in the same folder and update the filename.
-        Example: <source src="nasheed.mp3" type="audio/mpeg">
-        You can also use a direct URL to an audio file.
-    -->
     <audio id="bgMusic" loop preload="auto">
         <source src="background-music.mp3" type="audio/mpeg">
     </audio>
 
-    <!-- Music Toggle Button -->
+    <!-- Music Toggle -->
     <button class="music-toggle" id="musicToggle" aria-label="Toggle Music">
         <div class="bars">
             <div class="bar"></div>
@@ -625,145 +689,188 @@
         </div>
     </button>
 
-    <!-- Main Invitation Content -->
+    <!-- =================== MAIN INVITATION =================== -->
     <div class="invitation" id="invitation">
 
-        <!-- Hero Section -->
+        <!-- ===== HERO ===== -->
         <section class="hero">
-            <div class="hero-ornament-top">&#10022;</div>
-            <div class="bismillah">Bismillahirrahmanirrahim</div>
-            <div class="hero-label">Majlis Kesyukuran Aqiqah</div>
-            <div class="divider">
-                <div class="divider-line"></div>
-                <div class="divider-diamond"></div>
-                <div class="divider-line"></div>
+
+            <div class="bismillah">&#65010;</div>
+
+            <div class="host-names">
+                <div class="host-name">Ahmad Baharudin Bin Man</div>
+                <div class="host-ampersand">&amp;</div>
+                <div class="host-name">Mastura Binti Md. Yatim</div>
             </div>
-            <div class="hero-subtitle">untuk anakanda</div>
-            <!-- CHANGE: Replace with the child's name -->
-            <div class="hero-child-name">MUHAMMAD ADAM</div>
-            <div class="divider">
-                <div class="divider-line"></div>
-                <div class="divider-diamond"></div>
-                <div class="divider-line"></div>
-            </div>
-            <p class="hero-dua">
-                "Ya Allah, berkatilah anak ini dan jadikanlah dia anak yang soleh/solehah."
+
+            <p class="invitation-text">
+                Dengan segala hormat dan berbesar hati<br>
+                menjemput Dato'/Datin/Tuan/Puan/Encik/Cik<br>
+                ke
             </p>
-            <div class="hero-ornament-bottom">&#10022;</div>
-        </section>
 
-        <!-- Event Details -->
-        <section class="details-section">
-            <h2 class="section-title fade-in">Butiran Majlis</h2>
-            <div class="section-ornament fade-in">&#10041;</div>
-            <div class="details-grid">
-                <div class="detail-card fade-in">
-                    <div class="detail-icon">&#128197;</div>
-                    <div class="detail-label">Tarikh</div>
-                    <!-- CHANGE: Replace with your event date -->
-                    <div class="detail-value"><strong>Sabtu, 20 Jun 2026</strong></div>
+            <div class="majlis-title">Majlis Aqiqah</div>
+
+            <div class="divider">
+                <div class="divider-line"></div>
+                <div class="divider-diamond"></div>
+                <div class="divider-line"></div>
+            </div>
+
+            <div class="cucunda-label">Cucunda:</div>
+
+            <div class="children-list">
+                <div class="child-name boy">
+                    Muhammad Qhalif Ayden<br>Bin Muhammad Isyraf Fikri
                 </div>
-                <div class="detail-card fade-in">
-                    <div class="detail-icon">&#128336;</div>
-                    <div class="detail-label">Masa</div>
-                    <!-- CHANGE: Replace with your event time -->
-                    <div class="detail-value"><strong>11:00 pagi – 4:00 petang</strong></div>
+
+                <div class="child-separator">,</div>
+
+                <div class="child-name boy">
+                    Muhammad Aariz Ilhan<br>Bin Muhammad Ikhwan Fawzy
                 </div>
-                <div class="detail-card fade-in">
-                    <div class="detail-icon">&#127968;</div>
-                    <div class="detail-label">Tempat</div>
-                    <!-- CHANGE: Replace with your venue -->
-                    <div class="detail-value"><strong>Dewan Komuniti<br>Taman Seri Indah</strong></div>
+
+                <div class="child-separator">&amp;</div>
+
+                <div class="child-name girl">
+                    Zulfa Afiyah<br>Binti Ahmad Muhaimin
                 </div>
             </div>
+
         </section>
 
-        <!-- Tentative / Schedule -->
-        <section class="schedule-section">
-            <h2 class="section-title fade-in">Atur Cara Majlis</h2>
-            <div class="section-ornament fade-in">&#10041;</div>
-            <div class="timeline fade-in">
-                <!-- CHANGE: Replace with your actual schedule -->
-                <div class="timeline-item">
-                    <div class="timeline-time">11:00 AM</div>
-                    <div class="timeline-event">Ketibaan Tetamu</div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-time">12:00 PM</div>
-                    <div class="timeline-event">Bacaan Doa &amp; Marhaban</div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-time">12:30 PM</div>
-                    <div class="timeline-event">Jamuan Makan</div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-time">2:00 PM</div>
-                    <div class="timeline-event">Cukur Jambul</div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-time">3:00 PM</div>
-                    <div class="timeline-event">Sesi Bergambar</div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-time">4:00 PM</div>
-                    <div class="timeline-event">Majlis Bersurai</div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Venue & Navigation -->
-        <section class="venue-section">
+        <!-- ===== NAVIGATION (FIRST SECTION) ===== -->
+        <section class="nav-section" id="navigasi">
             <h2 class="section-title fade-in">Lokasi Majlis</h2>
-            <div class="section-ornament fade-in" style="color: var(--gold-light);">&#10041;</div>
-            <!-- CHANGE: Replace with your venue name and address -->
-            <div class="venue-name fade-in">Dewan Komuniti Taman Seri Indah</div>
-            <p class="venue-address fade-in">
-                Jalan Seri Indah 1,<br>
-                Taman Seri Indah,<br>
-                43000 Kajang, Selangor
+            <div class="section-divider fade-in">
+                <div class="section-divider-line"></div>
+                <div class="section-divider-dot"></div>
+                <div class="section-divider-line"></div>
+            </div>
+
+            <p class="nav-address fade-in">
+                Lot 4410 Jalan Menteri,<br>
+                Off Jalan Tunku Bendahara,<br>
+                09000 Kulim, Kedah.
             </p>
+
+            <p class="nav-hint fade-in">Tekan untuk navigasi ke lokasi</p>
+
             <div class="map-buttons fade-in">
                 <!--
-                    CHANGE: Update the latitude & longitude in both URLs below.
-                    Current placeholder: 3.0000, 101.7833 (near Kajang, Selangor)
-
-                    Waze format:  https://waze.com/ul?ll=LATITUDE,LONGITUDE&navigate=yes
-                    GMaps format: https://www.google.com/maps/search/?api=1&query=LATITUDE,LONGITUDE
+                    CHANGE: Update latitude & longitude to your venue's coordinates.
+                    Placeholder: 5.3717, 100.5609 (near Kulim, Kedah)
                 -->
-                <a href="https://waze.com/ul?ll=3.0000,101.7833&navigate=yes"
+                <a href="https://waze.com/ul?ll=5.3717,100.5609&navigate=yes"
                    target="_blank" rel="noopener noreferrer" class="map-btn btn-waze">
-                    <svg viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M20.54 6.63c.69 1.33 1.07 2.84 1.07 4.43 0 2.09-.68 4.03-1.83 5.6l-.09.12c-.36.47-.82.86-1.35 1.14-.35.18-.73.28-1.13.28-.44 0-.85-.12-1.21-.34-.49-.29-.96-.61-1.41-.96-.36-.28-.7-.58-1.02-.9a8.04 8.04 0 01-1.42-1.97A7.9 7.9 0 0110.54 11c0-1.04.2-2.04.57-2.96A7.96 7.96 0 0118.04 3c.94 0 1.84.17 2.67.48l-.17.15zM6.88 17.35c-.28-.02-.56-.06-.83-.12a7.93 7.93 0 01-4.47-3.52A7.9 7.9 0 01.54 10.06C.79 6.2 3.85 3.1 7.71 2.79c.28-.02.56-.03.83-.03.74 0 1.46.1 2.14.3a9.94 9.94 0 00-2.11 3.14A9.87 9.87 0 007.54 11c0 1.84.5 3.56 1.37 5.04.26.45.55.87.88 1.27-.28.02-.56.04-.84.04h-.07zM9.5 9.5a1.25 1.25 0 100-2.5 1.25 1.25 0 000 2.5zm5 0a1.25 1.25 0 100-2.5 1.25 1.25 0 000 2.5zm-5.25 3.5c0 1.52 1.23 2.75 2.75 2.75s2.75-1.23 2.75-2.75h-5.5z"/>
-                    </svg>
-                    Waze
+                    <div class="map-btn-icon">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 2C6.5 2 2 6.5 2 12c0 2.3.8 4.4 2.1 6.1.3.4.7.3.9-.1.2-.3.1-.7-.2-1C3.7 15.7 3 13.9 3 12c0-5 4-9 9-9s9 4 9 9c0 1.9-.7 3.7-1.8 5-.3.3-.4.7-.2 1 .2.4.6.5.9.1C21.2 16.4 22 14.3 22 12c0-5.5-4.5-10-10-10zm-2.5 8a1.5 1.5 0 100-3 1.5 1.5 0 000 3zm5 0a1.5 1.5 0 100-3 1.5 1.5 0 000 3zM12 17c-2.2 0-4-1.3-4-3h1c0 1.1 1.3 2 3 2s3-.9 3-2h1c0 1.7-1.8 3-4 3z"/>
+                        </svg>
+                    </div>
+                    <span class="map-btn-label">Waze</span>
+                    <span class="map-btn-hint">Buka di Waze</span>
                 </a>
-                <a href="https://www.google.com/maps/search/?api=1&query=3.0000,101.7833"
+                <a href="https://www.google.com/maps/search/?api=1&query=5.3717,100.5609"
                    target="_blank" rel="noopener noreferrer" class="map-btn btn-gmaps">
-                    <svg viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5S10.62 6.5 12 6.5s2.5 1.12 2.5 2.5S13.38 11.5 12 11.5z"/>
-                    </svg>
-                    Google Maps
+                    <div class="map-btn-icon">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5S10.62 6.5 12 6.5s2.5 1.12 2.5 2.5S13.38 11.5 12 11.5z"/>
+                        </svg>
+                    </div>
+                    <span class="map-btn-label">Google Maps</span>
+                    <span class="map-btn-hint">Buka di Google Maps</span>
                 </a>
             </div>
         </section>
 
-        <!-- Doa Section -->
+        <!-- ===== BUTIRAN MAJLIS (DETAILS) ===== -->
+        <section class="details-section">
+            <h2 class="section-title fade-in">Butiran Majlis</h2>
+            <div class="section-divider fade-in">
+                <div class="section-divider-line"></div>
+                <div class="section-divider-dot"></div>
+                <div class="section-divider-line"></div>
+            </div>
+            <div class="details-grid">
+                <div class="detail-card fade-in">
+                    <div class="detail-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                            <line x1="16" y1="2" x2="16" y2="6"></line>
+                            <line x1="8" y1="2" x2="8" y2="6"></line>
+                            <line x1="3" y1="10" x2="21" y2="10"></line>
+                        </svg>
+                    </div>
+                    <div class="detail-label">Tarikh</div>
+                    <div class="detail-value"><strong>Sabtu, 23 Mei 2026</strong></div>
+                </div>
+                <div class="detail-card fade-in">
+                    <div class="detail-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <polyline points="12 6 12 12 16 14"></polyline>
+                        </svg>
+                    </div>
+                    <div class="detail-label">Masa</div>
+                    <div class="detail-value"><strong>11:00 pagi &ndash; 4:00 petang</strong></div>
+                </div>
+                <div class="detail-card fade-in">
+                    <div class="detail-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"></path>
+                            <circle cx="12" cy="10" r="3"></circle>
+                        </svg>
+                    </div>
+                    <div class="detail-label">Tempat</div>
+                    <div class="detail-value"><strong>Lot 4410 Jalan Menteri,<br>Kulim, Kedah</strong></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== ATUR CARA (SCHEDULE) ===== -->
+        <section class="schedule-section">
+            <h2 class="section-title fade-in">Atur Cara</h2>
+            <div class="section-divider fade-in">
+                <div class="section-divider-line"></div>
+                <div class="section-divider-dot"></div>
+                <div class="section-divider-line"></div>
+            </div>
+            <div class="schedule-grid fade-in">
+                <div class="schedule-item">
+                    <span class="schedule-time">11:00 &ndash; 11:15 pagi</span>
+                    <span class="schedule-dash">&mdash;</span>
+                    <span class="schedule-event">Tahlil</span>
+                </div>
+                <div class="schedule-item">
+                    <span class="schedule-time">11:15 &ndash; 4:00 petang</span>
+                    <span class="schedule-dash">&mdash;</span>
+                    <span class="schedule-event">Jamuan</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== DOA SECTION ===== -->
         <section class="doa-section">
             <h2 class="section-title fade-in">Doa Restu</h2>
-            <div class="section-ornament fade-in" style="color: var(--gold-light);">&#10041;</div>
+            <div class="section-divider fade-in">
+                <div class="section-divider-line"></div>
+                <div class="section-divider-dot"></div>
+                <div class="section-divider-line"></div>
+            </div>
             <p class="doa-text fade-in">
-                "Ya Allah, berkatilah keluarga kami dan kurniakanlah anak-anak yang soleh dan solehah."
+                "Ya Allah, berkatilah cucunda kami dan jadikanlah mereka anak-anak yang soleh dan solehah."
             </p>
             <p class="doa-translation fade-in">
-                Kehadiran dan doa restu daripada tuan/puan amat dihargai dan didahului dengan ucapan terima kasih.
+                Kehadiran dan doa restu daripada tuan/puan amat kami hargai.<br>
+                Terima kasih.
             </p>
         </section>
 
-        <!-- Footer -->
+        <!-- ===== FOOTER ===== -->
         <footer>
-            <!-- CHANGE: Replace with your family name -->
-            <div class="family-name">Keluarga Ahmad &amp; Siti Nurhaliza</div>
-            <p>&copy; 2026 &middot; Majlis Aqiqah Muhammad Adam</p>
+            <div class="family-name">Keluarga Ahmad Baharudin &amp; Mastura</div>
+            <p>&copy; 2026 &middot; Majlis Aqiqah</p>
         </footer>
 
     </div>
