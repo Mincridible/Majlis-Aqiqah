@@ -593,7 +593,8 @@
             .date-highlight-text { font-size: 1.6rem; letter-spacing: 2px; }
             .section-title { font-size: 1.4rem; }
             .map-btn { min-width: 120px; padding: 14px 18px; }
-            .map-btn-icon { width: 44px; height: 44px; font-size: 1.3rem; }
+            .map-btn-icon { width: 44px; height: 44px; }
+            .map-btn-icon svg { width: 30px; height: 30px; }
             .doa-text { font-size: 1.15rem; }
             .splash-title { font-size: 1.4rem; }
             .splash-bismillah { font-size: 1.4rem; }
@@ -707,13 +708,23 @@
                 -->
                 <a href="https://waze.com/ul?ll=5.3717,100.5609&navigate=yes"
                    target="_blank" rel="noopener noreferrer" class="map-btn btn-waze">
-                    <div class="map-btn-icon">&#128205;</div>
+                    <div class="map-btn-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"></path>
+                            <circle cx="12" cy="10" r="3"></circle>
+                        </svg>
+                    </div>
                     <span class="map-btn-label">Waze</span>
                     <span class="map-btn-sub">Buka di Waze</span>
                 </a>
                 <a href="https://www.google.com/maps/search/?api=1&query=5.3717,100.5609"
                    target="_blank" rel="noopener noreferrer" class="map-btn btn-gmaps">
-                    <div class="map-btn-icon">&#128205;</div>
+                    <div class="map-btn-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"></path>
+                            <circle cx="12" cy="10" r="3"></circle>
+                        </svg>
+                    </div>
                     <span class="map-btn-label">Google Maps</span>
                     <span class="map-btn-sub">Buka di Google Maps</span>
                 </a>
