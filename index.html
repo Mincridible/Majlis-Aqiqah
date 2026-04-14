@@ -15,23 +15,22 @@
         }
 
         :root {
-            --green-pastel: #c5e6cc;
-            --green-pale: #dff0e3;
-            --green-bg: #eaf5ed;
-            --green-soft: #a8d8b0;
-            --green-text: #3a6b4a;
-            --green-dark: #2c5e3a;
-            --pink-pastel: #f2c4d0;
-            --pink-soft: #e8a0b4;
-            --pink-text: #b44872;
-            --pink-muted: #d4849e;
-            --blue-pastel: #a8c8e8;
-            --blue-text: #2c5f8a;
-            --cream: #fafdf7;
+            --sage: #8aab8a;
+            --sage-light: #b5ccb5;
+            --sage-pale: #d6e5d6;
+            --sage-deep: #4a6b4a;
+            --sage-dark: #344d34;
+            --rose: #c9909a;
+            --rose-light: #dbb5bb;
+            --rose-pale: #eedcdf;
+            --rose-deep: #9e6570;
+            --blue-muted: #7a9bb8;
+            --blue-deep: #4a7194;
+            --cream: #f7f5f0;
             --white: #ffffff;
-            --dark: #3a3a3a;
-            --text: #4a4a4a;
-            --text-light: #6a6a6a;
+            --dark: #3d3830;
+            --text: #555048;
+            --text-light: #7a756d;
         }
 
         html {
@@ -54,7 +53,7 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            background: linear-gradient(160deg, var(--green-pale) 0%, var(--green-pastel) 50%, var(--green-pale) 100%);
+            background: linear-gradient(135deg, var(--sage-dark) 0%, #3a5a3a 50%, var(--sage-dark) 100%);
             transition: opacity 0.8s ease, visibility 0.8s ease;
         }
 
@@ -71,17 +70,17 @@
 
         .splash-bismillah {
             font-family: 'Amiri', serif;
-            font-size: 2rem;
-            color: var(--green-dark);
-            margin-bottom: 1.5rem;
-            line-height: 1.4;
+            font-size: 1.8rem;
+            color: var(--sage-pale);
+            margin-bottom: 1rem;
+            opacity: 0.9;
         }
 
         .splash-title {
             font-family: 'Playfair Display', serif;
             font-size: 1.8rem;
-            color: var(--green-dark);
-            margin-bottom: 0.4rem;
+            color: var(--sage-light);
+            margin-bottom: 0.5rem;
             letter-spacing: 4px;
             text-transform: uppercase;
         }
@@ -89,30 +88,45 @@
         .splash-subtitle {
             font-family: 'Cormorant Garamond', serif;
             font-size: 1.1rem;
-            color: var(--text);
+            color: var(--sage-pale);
             margin-bottom: 2.5rem;
             font-style: italic;
+            opacity: 0.8;
         }
 
         .open-btn {
-            padding: 14px 50px;
+            padding: 14px 48px;
             font-family: 'Playfair Display', serif;
             font-size: 1rem;
             letter-spacing: 3px;
             text-transform: uppercase;
-            color: var(--white);
-            background: var(--pink-muted);
-            border: none;
-            border-radius: 50px;
+            color: var(--sage-light);
+            background: transparent;
+            border: 1.5px solid var(--sage-light);
             cursor: pointer;
             transition: all 0.4s ease;
-            box-shadow: 0 4px 18px rgba(180, 72, 114, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .open-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: var(--sage-light);
+            transition: left 0.4s ease;
+            z-index: -1;
         }
 
         .open-btn:hover {
-            background: var(--pink-text);
-            transform: translateY(-2px);
-            box-shadow: 0 6px 24px rgba(180, 72, 114, 0.3);
+            color: var(--sage-dark);
+        }
+
+        .open-btn:hover::before {
+            left: 0;
         }
 
         /* ===================== MUSIC CONTROL ===================== */
@@ -124,15 +138,16 @@
             width: 48px;
             height: 48px;
             border-radius: 50%;
-            border: 2px solid var(--pink-pastel);
-            background: var(--white);
-            color: var(--pink-muted);
+            border: 1.5px solid var(--sage-light);
+            background: var(--sage-dark);
+            color: var(--sage-light);
             cursor: pointer;
             display: flex;
             align-items: center;
             justify-content: center;
+            font-size: 1.2rem;
             transition: all 0.3s ease;
-            box-shadow: 0 3px 12px rgba(0,0,0,0.1);
+            box-shadow: 0 3px 12px rgba(0,0,0,0.2);
             opacity: 0;
             visibility: hidden;
         }
@@ -143,8 +158,8 @@
         }
 
         .music-toggle:hover {
-            background: var(--pink-pastel);
-            color: var(--white);
+            background: var(--sage-light);
+            color: var(--sage-dark);
             transform: scale(1.08);
         }
 
@@ -196,8 +211,8 @@
             align-items: center;
             justify-content: center;
             text-align: center;
-            padding: 3rem 1.5rem;
-            background: linear-gradient(160deg, var(--green-pale) 0%, var(--green-pastel) 40%, var(--green-pale) 100%);
+            padding: 3rem 2rem;
+            background: linear-gradient(135deg, var(--sage-dark) 0%, #3a5a3a 50%, var(--sage-dark) 100%);
             position: relative;
             overflow: hidden;
         }
@@ -206,33 +221,33 @@
         .hero::after {
             content: '';
             position: absolute;
-            width: 280px;
-            height: 280px;
-            border: 1px solid rgba(168, 216, 176, 0.3);
+            width: 300px;
+            height: 300px;
+            border: 1px solid rgba(181, 204, 181, 0.08);
             border-radius: 50%;
         }
 
-        .hero::before { top: -80px; right: -80px; }
-        .hero::after { bottom: -80px; left: -80px; }
+        .hero::before { top: -100px; right: -100px; }
+        .hero::after { bottom: -100px; left: -100px; }
 
         .bismillah {
             font-family: 'Amiri', serif;
-            font-size: 2.2rem;
-            color: var(--green-dark);
-            margin-bottom: 1.8rem;
+            font-size: 2rem;
+            color: var(--sage-pale);
+            margin-bottom: 1.5rem;
             font-weight: 700;
             line-height: 1.6;
         }
 
         .host-names {
-            margin-bottom: 1.2rem;
+            margin-bottom: 1rem;
         }
 
         .host-name {
             font-family: 'Playfair Display', serif;
-            font-size: 1.25rem;
+            font-size: 1.15rem;
             font-weight: 700;
-            color: var(--green-dark);
+            color: var(--sage-pale);
             letter-spacing: 2px;
             text-transform: uppercase;
             line-height: 1.6;
@@ -241,22 +256,22 @@
         .host-ampersand {
             font-family: 'Great Vibes', cursive;
             font-size: 1.8rem;
-            color: var(--pink-muted);
-            margin: 0.15rem 0;
+            color: var(--rose-light);
+            margin: 0.1rem 0;
         }
 
         .invitation-text {
-            font-size: 1.15rem;
-            color: var(--text);
-            margin-bottom: 0.6rem;
+            font-size: 1.1rem;
+            color: rgba(214, 229, 214, 0.8);
+            margin-bottom: 0.5rem;
             line-height: 1.8;
         }
 
         .majlis-title {
             font-family: 'Great Vibes', cursive;
             font-size: 3rem;
-            color: var(--green-dark);
-            margin-bottom: 0.6rem;
+            color: var(--sage-light);
+            margin-bottom: 0.5rem;
         }
 
         .divider {
@@ -264,30 +279,33 @@
             align-items: center;
             justify-content: center;
             gap: 1rem;
-            margin: 0.8rem 0;
+            margin: 0.7rem 0;
         }
 
         .divider-line {
-            width: 55px;
+            width: 60px;
             height: 1px;
-            background: var(--green-soft);
+            background: var(--sage-light);
+            opacity: 0.35;
         }
 
         .divider-diamond {
             width: 7px;
             height: 7px;
-            border: 1px solid var(--green-soft);
+            border: 1px solid var(--sage-light);
             transform: rotate(45deg);
+            opacity: 0.4;
         }
 
         .cucunda-label {
             font-family: 'Playfair Display', serif;
-            font-size: 1rem;
+            font-size: 0.9rem;
             letter-spacing: 4px;
             text-transform: uppercase;
-            color: var(--text);
-            margin: 0.8rem 0;
+            color: var(--sage-pale);
+            margin: 0.6rem 0;
             font-weight: 600;
+            opacity: 0.8;
         }
 
         .children-list {
@@ -301,42 +319,58 @@
             letter-spacing: 1.5px;
             text-transform: uppercase;
             line-height: 1.5;
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.4rem;
         }
 
-        .child-name.boy { color: var(--blue-text); }
-        .child-name.girl { color: var(--pink-text); }
+        .child-name.boy { color: var(--blue-muted); }
+        .child-name.girl { color: var(--rose); }
 
         .child-separator {
             font-family: 'Great Vibes', cursive;
-            font-size: 1.4rem;
-            color: var(--pink-muted);
-            margin: 0.2rem 0;
+            font-size: 1.3rem;
+            color: var(--rose-light);
+            margin: 0.15rem 0;
+            opacity: 0.7;
         }
 
-        /* ===================== NAVIGATION SECTION (FIRST) ===================== */
-        .nav-section {
-            background: var(--white);
+        .hero-dua {
+            font-size: 1.05rem;
+            color: var(--sage-pale);
+            font-style: italic;
+            max-width: 500px;
+            line-height: 1.8;
+            opacity: 0.6;
+            margin-top: 0.5rem;
+        }
+
+        /* ===================== NAVIGATION SECTION ===================== */
+        .venue-section {
+            background: linear-gradient(135deg, #3f5c3f 0%, var(--sage-dark) 100%);
+            color: #fff;
             text-align: center;
-            padding: 3rem 1.5rem;
-            border-bottom: 1px solid var(--green-pale);
         }
 
-        .nav-section .section-title {
-            color: var(--green-dark);
+        .venue-section .section-title {
+            color: var(--sage-light);
         }
 
-        .nav-address {
-            font-size: 1.15rem;
-            color: var(--text);
+        .venue-section .section-ornament {
+            color: var(--rose-light);
+            opacity: 0.4;
+        }
+
+        .venue-address {
+            font-size: 1.1rem;
+            color: rgba(214, 229, 214, 0.65);
+            max-width: 400px;
+            margin: 0 auto 1rem;
             line-height: 1.9;
-            margin-bottom: 1.8rem;
         }
 
         .nav-hint {
             font-size: 0.95rem;
-            color: var(--text-light);
-            margin-bottom: 1.2rem;
+            color: rgba(214, 229, 214, 0.5);
+            margin-bottom: 1.5rem;
             font-style: italic;
         }
 
@@ -351,17 +385,17 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 10px;
-            padding: 20px 28px;
-            border-radius: 14px;
+            gap: 8px;
+            padding: 18px 26px;
+            border-radius: 12px;
             text-decoration: none;
             transition: all 0.3s ease;
-            min-width: 150px;
+            min-width: 140px;
         }
 
         .map-btn-icon {
-            width: 54px;
-            height: 54px;
+            width: 50px;
+            height: 50px;
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -370,68 +404,76 @@
         }
 
         .map-btn-icon svg {
-            width: 28px;
-            height: 28px;
+            width: 26px;
+            height: 26px;
         }
 
         .map-btn-label {
             font-family: 'Playfair Display', serif;
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             font-weight: 600;
             letter-spacing: 1px;
         }
 
-        .map-btn-hint {
-            font-size: 0.75rem;
-            opacity: 0.7;
+        .map-btn-sub {
+            font-size: 0.72rem;
+            opacity: 0.65;
         }
 
         .btn-waze {
-            background: #eef9ff;
-            border: 2px solid #9ad8f5;
-            color: #1a7ea1;
+            background: rgba(140, 200, 220, 0.1);
+            border: 1.5px solid rgba(140, 200, 220, 0.4);
+            color: #b0dae8;
         }
 
         .btn-waze .map-btn-icon {
-            background: #33ccff;
-            color: var(--white);
-            box-shadow: 0 3px 12px rgba(51, 204, 255, 0.3);
+            background: rgba(140, 200, 220, 0.2);
+            color: #b0dae8;
         }
 
         .btn-waze:hover {
-            background: #d0f0ff;
+            background: rgba(140, 200, 220, 0.2);
             transform: translateY(-3px);
-            box-shadow: 0 6px 20px rgba(51, 204, 255, 0.25);
+            box-shadow: 0 6px 20px rgba(140, 200, 220, 0.15);
+        }
+
+        .btn-waze:hover .map-btn-icon {
+            background: #8cc8dc;
+            color: var(--sage-dark);
         }
 
         .btn-gmaps {
-            background: #fef2f1;
-            border: 2px solid #f5b8b2;
-            color: #c5221f;
+            background: rgba(201, 144, 154, 0.1);
+            border: 1.5px solid rgba(201, 144, 154, 0.4);
+            color: var(--rose-light);
         }
 
         .btn-gmaps .map-btn-icon {
-            background: #ea4335;
-            color: var(--white);
-            box-shadow: 0 3px 12px rgba(234, 67, 53, 0.3);
+            background: rgba(201, 144, 154, 0.2);
+            color: var(--rose-light);
         }
 
         .btn-gmaps:hover {
-            background: #fde0dd;
+            background: rgba(201, 144, 154, 0.2);
             transform: translateY(-3px);
-            box-shadow: 0 6px 20px rgba(234, 67, 53, 0.25);
+            box-shadow: 0 6px 20px rgba(201, 144, 154, 0.15);
+        }
+
+        .btn-gmaps:hover .map-btn-icon {
+            background: var(--rose);
+            color: var(--white);
         }
 
         @keyframes pulse-waze {
-            0% { box-shadow: 0 0 0 0 rgba(51, 204, 255, 0.4); }
-            70% { box-shadow: 0 0 0 10px rgba(51, 204, 255, 0); }
-            100% { box-shadow: 0 0 0 0 rgba(51, 204, 255, 0); }
+            0% { box-shadow: 0 0 0 0 rgba(140, 200, 220, 0.3); }
+            70% { box-shadow: 0 0 0 10px rgba(140, 200, 220, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(140, 200, 220, 0); }
         }
 
         @keyframes pulse-gmaps {
-            0% { box-shadow: 0 0 0 0 rgba(234, 67, 53, 0.4); }
-            70% { box-shadow: 0 0 0 10px rgba(234, 67, 53, 0); }
-            100% { box-shadow: 0 0 0 0 rgba(234, 67, 53, 0); }
+            0% { box-shadow: 0 0 0 0 rgba(201, 144, 154, 0.3); }
+            70% { box-shadow: 0 0 0 10px rgba(201, 144, 154, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(201, 144, 154, 0); }
         }
 
         .btn-waze .map-btn-icon { animation: pulse-waze 2.5s ease infinite; }
@@ -439,49 +481,35 @@
 
         /* ===================== SECTION STYLING ===================== */
         section {
-            padding: 3.5rem 1.5rem;
+            padding: 4rem 1.5rem;
         }
 
         .section-title {
             font-family: 'Playfair Display', serif;
             font-size: 1.8rem;
             text-align: center;
-            color: var(--green-dark);
+            color: var(--sage-deep);
             margin-bottom: 0.5rem;
         }
 
-        .section-divider {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.8rem;
+        .section-ornament {
+            text-align: center;
+            color: var(--sage);
+            font-size: 1.5rem;
             margin-bottom: 2rem;
-        }
-
-        .section-divider-line {
-            width: 40px;
-            height: 1px;
-            background: var(--pink-pastel);
-        }
-
-        .section-divider-dot {
-            width: 6px;
-            height: 6px;
-            border-radius: 50%;
-            background: var(--pink-pastel);
+            opacity: 0.4;
         }
 
         /* ===================== BUTIRAN MAJLIS (DETAILS) ===================== */
         .details-section {
-            background: var(--green-bg);
-            padding: 4rem 1.5rem;
+            background: var(--white);
         }
 
         .details-section .section-title {
             font-size: 2.2rem;
             letter-spacing: 3px;
             text-transform: uppercase;
-            margin-bottom: 0.8rem;
+            color: var(--sage-dark);
         }
 
         .details-grid {
@@ -495,15 +523,14 @@
         .detail-card {
             text-align: center;
             padding: 2rem 1.5rem;
-            background: var(--white);
-            border: 1px solid var(--green-pastel);
-            border-radius: 10px;
+            border: 1px solid var(--sage-pale);
+            border-radius: 8px;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
         .detail-card:hover {
             transform: translateY(-3px);
-            box-shadow: 0 6px 24px rgba(58, 107, 74, 0.08);
+            box-shadow: 0 6px 24px rgba(74, 107, 74, 0.06);
         }
 
         .detail-icon {
@@ -511,96 +538,115 @@
         }
 
         .detail-icon svg {
-            width: 32px;
-            height: 32px;
-            color: var(--green-text);
-            opacity: 0.7;
+            width: 30px;
+            height: 30px;
+            color: var(--sage);
+            stroke-width: 1.5;
         }
 
         .detail-label {
             font-family: 'Playfair Display', serif;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             letter-spacing: 3px;
             text-transform: uppercase;
             color: var(--text-light);
-            margin-bottom: 0.6rem;
-            font-weight: 600;
+            margin-bottom: 0.5rem;
         }
 
         .detail-value {
             font-family: 'Playfair Display', serif;
-            font-size: 1.35rem;
+            font-size: 1.3rem;
             color: var(--dark);
             line-height: 1.6;
         }
 
         .detail-value strong {
-            font-weight: 700;
-            color: var(--green-dark);
+            font-weight: 600;
+            color: var(--sage-dark);
         }
 
-        /* ===================== ATUR CARA (SCHEDULE) ===================== */
+        /* ===================== SCHEDULE (TIMELINE) ===================== */
         .schedule-section {
-            background: var(--white);
-            text-align: center;
+            background: var(--cream);
         }
 
-        .schedule-grid {
-            max-width: 480px;
+        .timeline {
+            max-width: 500px;
             margin: 0 auto;
+            position: relative;
+            padding-left: 40px;
         }
 
-        .schedule-item {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 1rem;
-            padding: 1rem 0;
-            border-bottom: 1px solid var(--green-pale);
-            font-size: 1.15rem;
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 14px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(to bottom, var(--sage), var(--sage-pale));
         }
 
-        .schedule-item:last-child {
-            border-bottom: none;
+        .timeline-item {
+            position: relative;
+            margin-bottom: 2rem;
+            padding-left: 1rem;
         }
 
-        .schedule-time {
-            font-weight: 500;
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -33px;
+            top: 6px;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--sage);
+            border: 3px solid var(--cream);
+            box-shadow: 0 0 0 2px var(--sage);
+        }
+
+        .timeline-time {
+            font-family: 'Playfair Display', serif;
+            font-size: 0.85rem;
+            letter-spacing: 2px;
+            color: var(--sage-deep);
+        }
+
+        .timeline-event {
+            font-size: 1.2rem;
             color: var(--dark);
-            min-width: 160px;
-            text-align: right;
-        }
-
-        .schedule-dash {
-            color: var(--pink-muted);
-            font-weight: 600;
-        }
-
-        .schedule-event {
-            color: var(--green-dark);
-            font-weight: 600;
-            min-width: 80px;
-            text-align: left;
+            margin-top: 0.25rem;
         }
 
         /* ===================== DOA SECTION ===================== */
         .doa-section {
-            background: var(--green-bg);
+            background: linear-gradient(135deg, var(--sage-dark) 0%, #3a5a3a 100%);
             text-align: center;
+            color: #fff;
+        }
+
+        .doa-section .section-title {
+            color: var(--sage-light);
+        }
+
+        .doa-section .section-ornament {
+            color: var(--rose-light);
+            opacity: 0.35;
         }
 
         .doa-text {
-            font-size: 1.3rem;
-            color: var(--green-dark);
-            max-width: 550px;
+            font-size: 1.4rem;
+            color: var(--sage-pale);
+            max-width: 580px;
             margin: 0 auto 1rem;
             line-height: 2;
             font-style: italic;
         }
 
         .doa-translation {
-            font-size: 1.05rem;
-            color: var(--text-light);
+            font-size: 1rem;
+            color: rgba(214, 229, 214, 0.55);
             max-width: 480px;
             margin: 0 auto;
             line-height: 1.8;
@@ -608,8 +654,8 @@
 
         /* ===================== FOOTER ===================== */
         footer {
-            background: var(--green-dark);
-            color: rgba(255, 255, 255, 0.5);
+            background: var(--dark);
+            color: rgba(255, 255, 255, 0.4);
             text-align: center;
             padding: 2rem;
             font-size: 0.9rem;
@@ -617,7 +663,7 @@
 
         footer .family-name {
             font-family: 'Playfair Display', serif;
-            color: var(--green-pastel);
+            color: var(--sage-light);
             font-size: 1.15rem;
             margin-bottom: 0.4rem;
         }
@@ -636,33 +682,30 @@
 
         /* ===================== RESPONSIVE ===================== */
         @media (max-width: 600px) {
-            .bismillah { font-size: 1.6rem; }
-            .host-name { font-size: 1.05rem; letter-spacing: 1px; }
+            .bismillah { font-size: 1.5rem; }
+            .host-name { font-size: 1rem; letter-spacing: 1px; }
             .majlis-title { font-size: 2.4rem; }
             .child-name { font-size: 1rem; }
             .details-section .section-title { font-size: 1.7rem; letter-spacing: 2px; }
             .section-title { font-size: 1.4rem; }
-            .map-btn { min-width: 130px; padding: 16px 20px; }
-            .map-btn-icon { width: 46px; height: 46px; }
-            .map-btn-icon svg { width: 24px; height: 24px; }
+            .map-btn { min-width: 120px; padding: 14px 18px; }
+            .map-btn-icon { width: 44px; height: 44px; }
+            .map-btn-icon svg { width: 22px; height: 22px; }
             .detail-card { padding: 1.5rem 1rem; }
-            .detail-value { font-size: 1.2rem; }
-            .doa-text { font-size: 1.1rem; }
+            .detail-value { font-size: 1.15rem; }
+            .doa-text { font-size: 1.15rem; }
             .splash-title { font-size: 1.4rem; }
-            .splash-bismillah { font-size: 1.5rem; }
-            .schedule-time { min-width: 130px; font-size: 1rem; }
-            .schedule-event { font-size: 1rem; }
+            .splash-bismillah { font-size: 1.4rem; }
         }
 
         @media (max-width: 380px) {
             .child-name { font-size: 0.9rem; letter-spacing: 1px; }
-            .detail-value { font-size: 1.1rem; }
         }
     </style>
 </head>
 <body>
 
-    <!-- =================== SPLASH SCREEN =================== -->
+    <!-- Splash Screen -->
     <div class="splash-screen" id="splashScreen">
         <div class="splash-content">
             <div class="splash-bismillah">&#65010;</div>
@@ -679,7 +722,7 @@
         <source src="background-music.mp3" type="audio/mpeg">
     </audio>
 
-    <!-- Music Toggle -->
+    <!-- Music Toggle Button -->
     <button class="music-toggle" id="musicToggle" aria-label="Toggle Music">
         <div class="bars">
             <div class="bar"></div>
@@ -689,10 +732,10 @@
         </div>
     </button>
 
-    <!-- =================== MAIN INVITATION =================== -->
+    <!-- Main Invitation Content -->
     <div class="invitation" id="invitation">
 
-        <!-- ===== HERO ===== -->
+        <!-- Hero Section -->
         <section class="hero">
 
             <div class="bismillah">&#65010;</div>
@@ -723,42 +766,40 @@
                 <div class="child-name boy">
                     Muhammad Qhalif Ayden<br>Bin Muhammad Isyraf Fikri
                 </div>
-
                 <div class="child-separator">,</div>
-
                 <div class="child-name boy">
                     Muhammad Aariz Ilhan<br>Bin Muhammad Ikhwan Fawzy
                 </div>
-
                 <div class="child-separator">&amp;</div>
-
                 <div class="child-name girl">
                     Zulfa Afiyah<br>Binti Ahmad Muhaimin
                 </div>
             </div>
 
-        </section>
-
-        <!-- ===== NAVIGATION (FIRST SECTION) ===== -->
-        <section class="nav-section" id="navigasi">
-            <h2 class="section-title fade-in">Lokasi Majlis</h2>
-            <div class="section-divider fade-in">
-                <div class="section-divider-line"></div>
-                <div class="section-divider-dot"></div>
-                <div class="section-divider-line"></div>
+            <div class="divider">
+                <div class="divider-line"></div>
+                <div class="divider-diamond"></div>
+                <div class="divider-line"></div>
             </div>
 
-            <p class="nav-address fade-in">
+            <p class="hero-dua">
+                "Ya Allah, berkatilah cucunda kami dan jadikanlah mereka anak-anak yang soleh dan solehah."
+            </p>
+        </section>
+
+        <!-- Lokasi & Navigation (First Section) -->
+        <section class="venue-section">
+            <h2 class="section-title fade-in">Lokasi Majlis</h2>
+            <div class="section-ornament fade-in">&#10044;</div>
+            <p class="venue-address fade-in">
                 Lot 4410 Jalan Menteri,<br>
                 Off Jalan Tunku Bendahara,<br>
                 09000 Kulim, Kedah.
             </p>
-
             <p class="nav-hint fade-in">Tekan untuk navigasi ke lokasi</p>
-
             <div class="map-buttons fade-in">
                 <!--
-                    CHANGE: Update latitude & longitude to your venue's coordinates.
+                    CHANGE: Update latitude & longitude to your venue's exact coordinates.
                     Placeholder: 5.3717, 100.5609 (near Kulim, Kedah)
                 -->
                 <a href="https://waze.com/ul?ll=5.3717,100.5609&navigate=yes"
@@ -769,7 +810,7 @@
                         </svg>
                     </div>
                     <span class="map-btn-label">Waze</span>
-                    <span class="map-btn-hint">Buka di Waze</span>
+                    <span class="map-btn-sub">Buka di Waze</span>
                 </a>
                 <a href="https://www.google.com/maps/search/?api=1&query=5.3717,100.5609"
                    target="_blank" rel="noopener noreferrer" class="map-btn btn-gmaps">
@@ -779,23 +820,19 @@
                         </svg>
                     </div>
                     <span class="map-btn-label">Google Maps</span>
-                    <span class="map-btn-hint">Buka di Google Maps</span>
+                    <span class="map-btn-sub">Buka di Google Maps</span>
                 </a>
             </div>
         </section>
 
-        <!-- ===== BUTIRAN MAJLIS (DETAILS) ===== -->
+        <!-- Butiran Majlis (Event Details) -->
         <section class="details-section">
             <h2 class="section-title fade-in">Butiran Majlis</h2>
-            <div class="section-divider fade-in">
-                <div class="section-divider-line"></div>
-                <div class="section-divider-dot"></div>
-                <div class="section-divider-line"></div>
-            </div>
+            <div class="section-ornament fade-in">&#10044;</div>
             <div class="details-grid">
                 <div class="detail-card fade-in">
                     <div class="detail-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
                             <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
                             <line x1="16" y1="2" x2="16" y2="6"></line>
                             <line x1="8" y1="2" x2="8" y2="6"></line>
@@ -807,7 +844,7 @@
                 </div>
                 <div class="detail-card fade-in">
                     <div class="detail-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
                             <circle cx="12" cy="12" r="10"></circle>
                             <polyline points="12 6 12 12 16 14"></polyline>
                         </svg>
@@ -817,47 +854,37 @@
                 </div>
                 <div class="detail-card fade-in">
                     <div class="detail-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
                             <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"></path>
                             <circle cx="12" cy="10" r="3"></circle>
                         </svg>
                     </div>
                     <div class="detail-label">Tempat</div>
-                    <div class="detail-value"><strong>Lot 4410 Jalan Menteri,<br>Kulim, Kedah</strong></div>
+                    <div class="detail-value"><strong>Lot 4410 Jalan Menteri,<br>09000 Kulim, Kedah</strong></div>
                 </div>
             </div>
         </section>
 
-        <!-- ===== ATUR CARA (SCHEDULE) ===== -->
+        <!-- Atur Cara (Schedule) -->
         <section class="schedule-section">
-            <h2 class="section-title fade-in">Atur Cara</h2>
-            <div class="section-divider fade-in">
-                <div class="section-divider-line"></div>
-                <div class="section-divider-dot"></div>
-                <div class="section-divider-line"></div>
-            </div>
-            <div class="schedule-grid fade-in">
-                <div class="schedule-item">
-                    <span class="schedule-time">11:00 &ndash; 11:15 pagi</span>
-                    <span class="schedule-dash">&mdash;</span>
-                    <span class="schedule-event">Tahlil</span>
+            <h2 class="section-title fade-in">Atur Cara Majlis</h2>
+            <div class="section-ornament fade-in">&#10044;</div>
+            <div class="timeline fade-in">
+                <div class="timeline-item">
+                    <div class="timeline-time">11:00 &ndash; 11:15 pagi</div>
+                    <div class="timeline-event">Tahlil</div>
                 </div>
-                <div class="schedule-item">
-                    <span class="schedule-time">11:15 &ndash; 4:00 petang</span>
-                    <span class="schedule-dash">&mdash;</span>
-                    <span class="schedule-event">Jamuan</span>
+                <div class="timeline-item">
+                    <div class="timeline-time">11:15 &ndash; 4:00 petang</div>
+                    <div class="timeline-event">Jamuan</div>
                 </div>
             </div>
         </section>
 
-        <!-- ===== DOA SECTION ===== -->
+        <!-- Doa Section -->
         <section class="doa-section">
             <h2 class="section-title fade-in">Doa Restu</h2>
-            <div class="section-divider fade-in">
-                <div class="section-divider-line"></div>
-                <div class="section-divider-dot"></div>
-                <div class="section-divider-line"></div>
-            </div>
+            <div class="section-ornament fade-in">&#10044;</div>
             <p class="doa-text fade-in">
                 "Ya Allah, berkatilah cucunda kami dan jadikanlah mereka anak-anak yang soleh dan solehah."
             </p>
@@ -867,7 +894,7 @@
             </p>
         </section>
 
-        <!-- ===== FOOTER ===== -->
+        <!-- Footer -->
         <footer>
             <div class="family-name">Keluarga Ahmad Baharudin &amp; Mastura</div>
             <p>&copy; 2026 &middot; Majlis Aqiqah</p>
