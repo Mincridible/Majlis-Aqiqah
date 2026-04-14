@@ -302,7 +302,7 @@
             font-size: 1rem;
             letter-spacing: 4px;
             text-transform: uppercase;
-            color: var(--sage-deep);
+            color: var(--dark);
             margin: 0.6rem 0;
             font-weight: 700;
         }
@@ -352,34 +352,34 @@
             font-weight: 600;
         }
 
-        /* ===================== NAVIGATION SECTION (Level 2 - slightly deeper) ===================== */
+        /* ===================== NAVIGATION SECTION ===================== */
         .venue-section {
-            background: linear-gradient(160deg, #dce8dc 0%, #d0e0d0 50%, #d8e4d8 100%);
+            background: #f5f0e8;
             color: var(--dark);
             text-align: center;
         }
 
         .venue-section .section-title {
-            color: #2c4a2c;
+            color: #5a4a3a;
         }
 
         .venue-section .section-ornament {
-            color: var(--sage);
-            opacity: 0.5;
+            color: #c4a882;
+            opacity: 0.6;
         }
 
         .venue-address {
             font-size: 1.2rem;
-            color: #3a5a3a;
+            color: #5a4a3a;
             max-width: 400px;
-            margin: 0 auto 1.5rem;
+            margin: 0 auto 1.2rem;
             line-height: 1.9;
             font-weight: 600;
         }
 
         .nav-hint {
             font-size: 0.95rem;
-            color: #5a7a5a;
+            color: #8a7a6a;
             margin-bottom: 1.8rem;
             font-style: italic;
         }
@@ -392,52 +392,106 @@
         }
 
         .map-btn {
-            display: inline-flex;
+            display: flex;
+            flex-direction: column;
             align-items: center;
-            gap: 12px;
-            padding: 16px 32px;
-            border-radius: 50px;
+            gap: 10px;
+            padding: 22px 32px;
+            border-radius: 14px;
             text-decoration: none;
             transition: all 0.3s ease;
+            min-width: 155px;
+            cursor: pointer;
+        }
+
+        .map-btn-icon {
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .map-btn-icon svg {
+            width: 28px;
+            height: 28px;
+            stroke-width: 1.8;
+        }
+
+        .map-btn-label {
             font-family: 'Playfair Display', serif;
             font-size: 1rem;
             font-weight: 700;
-            letter-spacing: 0.5px;
-            box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+            letter-spacing: 1px;
         }
 
-        .map-btn svg {
-            width: 22px;
-            height: 22px;
-            stroke-width: 2;
-            flex-shrink: 0;
+        .map-btn-sub {
+            font-size: 0.75rem;
+            opacity: 0.6;
         }
 
         .btn-waze {
-            background: var(--white);
-            color: #2c4a2c;
-            border: 2px solid #2c4a2c;
+            background: #fff;
+            border: 1.5px solid #c4a882;
+            color: #5a4a3a;
+            box-shadow: 0 2px 8px rgba(90, 74, 58, 0.08);
+        }
+
+        .btn-waze .map-btn-icon {
+            background: #ebe3d6;
+            color: #6b5a48;
         }
 
         .btn-waze:hover {
-            background: #2c4a2c;
-            color: var(--white);
-            transform: translateY(-3px);
-            box-shadow: 0 8px 24px rgba(44, 74, 44, 0.3);
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px rgba(90, 74, 58, 0.15);
+            background: #faf6f0;
+        }
+
+        .btn-waze:hover .map-btn-icon {
+            background: #c4a882;
+            color: #fff;
         }
 
         .btn-gmaps {
-            background: #2c4a2c;
-            color: var(--white);
-            border: 2px solid #2c4a2c;
+            background: #fff;
+            border: 1.5px solid var(--rose-light);
+            color: #6b4a52;
+            box-shadow: 0 2px 8px rgba(107, 74, 82, 0.08);
+        }
+
+        .btn-gmaps .map-btn-icon {
+            background: #f2e4e7;
+            color: #8a5a64;
         }
 
         .btn-gmaps:hover {
-            background: #1a3a1a;
-            border-color: #1a3a1a;
-            transform: translateY(-3px);
-            box-shadow: 0 8px 24px rgba(26, 58, 26, 0.35);
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px rgba(107, 74, 82, 0.15);
+            background: #fdf6f7;
         }
+
+        .btn-gmaps:hover .map-btn-icon {
+            background: var(--rose);
+            color: #fff;
+        }
+
+        @keyframes pulse-waze {
+            0% { box-shadow: 0 0 0 0 rgba(196, 168, 130, 0.35); }
+            70% { box-shadow: 0 0 0 12px rgba(196, 168, 130, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(196, 168, 130, 0); }
+        }
+
+        @keyframes pulse-gmaps {
+            0% { box-shadow: 0 0 0 0 rgba(201, 144, 154, 0.35); }
+            70% { box-shadow: 0 0 0 12px rgba(201, 144, 154, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(201, 144, 154, 0); }
+        }
+
+        .btn-waze .map-btn-icon { animation: pulse-waze 2.5s ease infinite; }
+        .btn-gmaps .map-btn-icon { animation: pulse-gmaps 2.5s ease infinite; }
 
         /* ===================== SECTION STYLING ===================== */
         section {
@@ -463,7 +517,7 @@
 
         /* ===================== SCHEDULE (TIMELINE) ===================== */
         .schedule-section {
-            background: linear-gradient(160deg, #f8f4ee 0%, #f2ece2 50%, #f6f1ea 100%);
+            background: #faf8f4;
         }
 
         .schedule-section .section-title {
@@ -471,8 +525,8 @@
         }
 
         .schedule-section .section-ornament {
-            color: #c4a882;
-            opacity: 0.6;
+            color: var(--rose);
+            opacity: 0.4;
         }
 
         .timeline {
@@ -489,7 +543,7 @@
             top: 0;
             bottom: 0;
             width: 2px;
-            background: linear-gradient(to bottom, #b8a080, #ddd0c0);
+            background: linear-gradient(to bottom, #c4a882, #ddd0bf);
         }
 
         .timeline-item {
@@ -506,16 +560,16 @@
             width: 12px;
             height: 12px;
             border-radius: 50%;
-            background: #b8a080;
-            border: 3px solid #f6f1ea;
-            box-shadow: 0 0 0 2px #b8a080;
+            background: #c4a882;
+            border: 3px solid #faf8f4;
+            box-shadow: 0 0 0 2px #c4a882;
         }
 
         .timeline-time {
             font-family: 'Playfair Display', serif;
             font-size: 0.9rem;
             letter-spacing: 2px;
-            color: #8a7260;
+            color: #8a7050;
             font-weight: 700;
         }
 
@@ -528,22 +582,22 @@
 
         /* ===================== DOA SECTION ===================== */
         .doa-section {
-            background: linear-gradient(135deg, var(--sage-dark) 0%, #3a5a3a 100%);
+            background: #f0ebe3;
             text-align: center;
         }
 
         .doa-section .section-title {
-            color: var(--sage-pale);
+            color: #5a4a3a;
         }
 
         .doa-section .section-ornament {
-            color: var(--rose-light);
-            opacity: 0.35;
+            color: #c4a882;
+            opacity: 0.5;
         }
 
         .doa-text {
             font-size: 1.35rem;
-            color: rgba(230, 240, 230, 0.9);
+            color: #4a3e32;
             max-width: 580px;
             margin: 0 auto 1rem;
             line-height: 2;
@@ -553,7 +607,7 @@
 
         .doa-translation {
             font-size: 1.05rem;
-            color: rgba(200, 220, 200, 0.55);
+            color: #7a6e62;
             max-width: 480px;
             margin: 0 auto;
             line-height: 1.8;
@@ -562,8 +616,8 @@
 
         /* ===================== FOOTER ===================== */
         footer {
-            background: #2a3a2a;
-            color: rgba(200, 220, 200, 0.4);
+            background: #3a3028;
+            color: rgba(235, 227, 214, 0.5);
             text-align: center;
             padding: 2rem;
             font-size: 0.9rem;
@@ -571,7 +625,7 @@
 
         footer .family-name {
             font-family: 'Playfair Display', serif;
-            color: var(--sage-pale);
+            color: #ddd0bf;
             font-size: 1.15rem;
             margin-bottom: 0.4rem;
             font-weight: 700;
@@ -597,7 +651,9 @@
             .child-name { font-size: 1rem; }
             .date-highlight-text { font-size: 1.6rem; letter-spacing: 2px; }
             .section-title { font-size: 1.4rem; }
-            .map-btn { padding: 14px 24px; font-size: 0.9rem; }
+            .map-btn { min-width: 135px; padding: 18px 22px; }
+            .map-btn-icon { width: 48px; height: 48px; }
+            .map-btn-icon svg { width: 24px; height: 24px; }
             .doa-text { font-size: 1.15rem; }
             .splash-title { font-size: 1.4rem; }
             .splash-bismillah { font-size: 1.4rem; }
@@ -711,19 +767,25 @@
                 -->
                 <a href="https://waze.com/ul?ll=5.3717,100.5609&navigate=yes"
                    target="_blank" rel="noopener noreferrer" class="map-btn btn-waze">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"></path>
-                        <circle cx="12" cy="10" r="3"></circle>
-                    </svg>
-                    Navigasi Waze
+                    <div class="map-btn-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"></path>
+                            <circle cx="12" cy="10" r="3"></circle>
+                        </svg>
+                    </div>
+                    <span class="map-btn-label">Waze</span>
+                    <span class="map-btn-sub">Buka di Waze</span>
                 </a>
                 <a href="https://www.google.com/maps/search/?api=1&query=5.3717,100.5609"
                    target="_blank" rel="noopener noreferrer" class="map-btn btn-gmaps">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"></path>
-                        <circle cx="12" cy="10" r="3"></circle>
-                    </svg>
-                    Navigasi Google Maps
+                    <div class="map-btn-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"></path>
+                            <circle cx="12" cy="10" r="3"></circle>
+                        </svg>
+                    </div>
+                    <span class="map-btn-label">Google Maps</span>
+                    <span class="map-btn-sub">Buka di Google Maps</span>
                 </a>
             </div>
         </section>
